@@ -24,7 +24,7 @@ export default function SolutionsPage() {
   return (
     <div className="min-h-screen hero-gradient">
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-6 py-16 sm:px-10">
+      <main className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10 lg:max-w-5xl xl:max-w-6xl xl:px-12 2xl:max-w-7xl">
         <p className="text-sm font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Customer use case</p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           How we fit your client workflow

@@ -74,7 +74,7 @@ const LoginPage = () => {
     <div className="relative min-h-screen overflow-hidden hero-gradient mesh-bg px-4 py-10 sm:px-6">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-200/50 via-transparent to-transparent dark:from-zinc-800/20" />
 
-      <div className="relative z-[1] mx-auto w-full max-w-5xl">
+      <div className="relative z-[1] mx-auto w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[90rem]">
         <div className="mb-8 text-center lg:mb-10">
           <Link
             href="/"

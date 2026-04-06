@@ -167,7 +167,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         </header>
 
         <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">
-          <div className="mx-auto max-w-5xl animate-fade-in">{children}</div>
+          <div className="mx-auto w-full max-w-6xl animate-fade-in xl:max-w-7xl 2xl:max-w-[90rem]">{children}</div>
         </main>
       </div>
     </div>

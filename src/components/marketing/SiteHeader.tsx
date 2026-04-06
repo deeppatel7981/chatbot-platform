@@ -18,7 +18,7 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/85 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/85">
-      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-10">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:px-8 xl:max-w-7xl xl:px-12 2xl:max-w-[90rem] 2xl:px-16">
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
           <motion.span
             className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 text-xs font-bold text-white shadow-sm dark:bg-zinc-100 dark:text-zinc-900"

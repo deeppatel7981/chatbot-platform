@@ -95,7 +95,7 @@ export default function InteractiveDemoChat({ variant = "full", className = "", 
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={[
         "relative mx-auto max-w-lg",
-        compact ? "mt-0 w-full max-w-none" : "mt-10",
+        compact ? "mt-0 w-full max-w-none" : "mt-10 xl:mt-0",
         className,
       ].join(" ")}
     >
