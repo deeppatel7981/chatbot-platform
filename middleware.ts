@@ -1,6 +1,9 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import { ensureNextAuthUrlFromVercel } from "@/lib/vercel-env";
 import { withAuth } from "next-auth/middleware";
+
+ensureNextAuthUrlFromVercel();
 
 export default withAuth(
   function middleware(req: NextRequest) {

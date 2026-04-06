@@ -2,7 +2,10 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { eq } from "drizzle-orm";
+import { ensureNextAuthUrlFromVercel } from "@/lib/vercel-env";
 import { getDb } from "@/lib/db/client";
+
+ensureNextAuthUrlFromVercel();
 import { users, organizationMembers } from "@/lib/db/schema";
 import { isMockData } from "@/lib/mock/mode";
 import { MOCK_ORG_ID, MOCK_USER_ID } from "@/lib/mock/fixtures";
