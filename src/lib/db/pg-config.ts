@@ -19,6 +19,9 @@ export function poolConfigFromDatabaseUrl(connectionString: string): PoolConfig 
   };
   if (u.hostname.includes(".rds.amazonaws.com")) {
     config.ssl = { rejectUnauthorized: false };
+  } else if (u.hostname.includes("supabase.com") || u.hostname.includes("supabase.co")) {
+    // Pooler (6543) and direct (5432) both expect TLS from Node `pg`.
+    config.ssl = { rejectUnauthorized: true };
   }
   return config;
 }

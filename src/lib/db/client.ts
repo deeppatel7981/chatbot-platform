@@ -7,19 +7,27 @@ import * as schema from "./schema";
 import { poolConfigFromDatabaseUrl } from "./pg-config";
 
 let pool: Pool | null = null;
-let devEnvLoaded = false;
+let localEnvLoaded = false;
 
 /**
  * Next.js does not override env vars already set in the shell (even if empty).
- * `npm run dev` preloads .env.local with override; `next dev` alone may not.
- * In development, reload .env.local so DATABASE_URL from the file wins.
+ * `npm run dev` preloads .env.local with override; plain `next dev` may not.
+ *
+ * When not on Vercel, also load `.env.local` here (including for `next start` where
+ * NODE_ENV is production) so DATABASE_URL is available if the shell blocked it.
+ * On Vercel, `VERCEL` is set — use dashboard env vars only (no repo .env on disk).
  */
 function resolveDatabaseUrl(): string | undefined {
   let url = process.env.DATABASE_URL?.trim();
   if (url) return url;
-  if (process.env.NODE_ENV !== "production" && !devEnvLoaded) {
-    devEnvLoaded = true;
+  if (localEnvLoaded) return undefined;
+  localEnvLoaded = true;
+
+  if (!process.env.VERCEL) {
     loadEnvFile({ path: resolve(process.cwd(), ".env.local"), override: true });
+    url = process.env.DATABASE_URL?.trim();
+    if (url) return url;
+    loadEnvFile({ path: resolve(process.cwd(), ".env"), override: true });
     url = process.env.DATABASE_URL?.trim();
   }
   return url;

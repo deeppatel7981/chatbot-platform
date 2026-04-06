@@ -124,10 +124,10 @@ export async function POST(req: Request) {
     const details = dev ? message : undefined;
 
     if (message.includes("DATABASE_URL is not set")) {
-      return NextResponse.json(
-        { error: "Database is not configured. Set DATABASE_URL in .env.local.", details },
-        { status: 503 }
-      );
+      const error = process.env.VERCEL
+        ? "Database is not configured. In Vercel: Project → Settings → Environment Variables → add DATABASE_URL (Postgres connection string), then redeploy."
+        : "Database is not configured. Add DATABASE_URL to .env.local at the project root, run npm run dev from that folder, or run unset DATABASE_URL if your shell has it set empty.";
+      return NextResponse.json({ error, details }, { status: 503 });
     }
     if (
       message.includes("ECONNREFUSED") ||
