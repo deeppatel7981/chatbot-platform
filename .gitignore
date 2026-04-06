@@ -30,9 +30,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (keep .env.example in git)
-.env
-.env.*
+# env files (commit .env.example as a template)
+.env*
 !.env.example
 
 # Terraform local overrides (may contain secrets)
