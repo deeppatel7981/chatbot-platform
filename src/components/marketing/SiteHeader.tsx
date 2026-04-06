@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 const links: { href: string; label: string; primary?: boolean }[] = [
-  { href: "/#for-business", label: "For your business" },
+  { href: "/#for-business", label: "Business" },
   { href: "/solutions", label: "Solutions" },
   { href: "/login", label: "Sign in", primary: true },
 ];
@@ -17,8 +17,8 @@ export default function SiteHeader() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4 sm:px-10 lg:px-12">
+    <header className="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/85 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/85">
+      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-10">
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
           <motion.span
             className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 text-xs font-bold text-white shadow-sm dark:bg-zinc-100 dark:text-zinc-900"
@@ -30,7 +30,13 @@ export default function SiteHeader() {
           <span>{APP_DISPLAY_NAME}</span>
         </Link>
 
-        <nav className="hidden items-center gap-4 text-sm font-medium md:flex">
+        <nav className="hidden items-center gap-5 text-sm font-medium md:flex">
+          <Link
+            href="/#for-business"
+            className="text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+          >
+            Business
+          </Link>
           <Link
             href="/solutions"
             className="text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
@@ -39,7 +45,7 @@ export default function SiteHeader() {
           </Link>
           <Link
             href="/login"
-            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 active:scale-[0.98] dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+            className="rounded-lg bg-zinc-900 px-3.5 py-1.5 text-sm font-medium text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
           >
             Sign in
           </Link>

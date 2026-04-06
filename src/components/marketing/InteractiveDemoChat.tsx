@@ -95,15 +95,15 @@ export default function InteractiveDemoChat({ variant = "full", className = "", 
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={[
         "relative mx-auto max-w-lg",
-        compact ? "mt-0 w-full max-w-none" : "mt-16",
+        compact ? "mt-0 w-full max-w-none" : "mt-10",
         className,
       ].join(" ")}
     >
-      <p className="mb-3 text-center text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-        {compact ? "Live widget demo" : "Try it live"}
+      <p className="mb-2 text-center text-xs font-medium text-zinc-500 dark:text-zinc-400">
+        {compact ? "Live widget demo" : "Widget preview"}
       </p>
-      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl shadow-zinc-900/5 ring-1 ring-zinc-900/5 dark:border-zinc-700 dark:bg-zinc-900 dark:ring-white/10">
-        <div className="flex items-center gap-2 border-b border-zinc-200 bg-zinc-900 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-950">
+      <div className="overflow-hidden rounded-xl border border-zinc-200/90 bg-white shadow-md dark:border-zinc-700 dark:bg-zinc-900">
+        <div className="flex items-center gap-2 border-b border-zinc-200/80 bg-zinc-900 px-3 py-2.5 dark:border-zinc-700 dark:bg-zinc-950">
           <span className="relative flex h-2.5 w-2.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-40" />
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-500" />

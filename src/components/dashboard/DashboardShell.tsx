@@ -166,8 +166,8 @@ export default function DashboardShell({ children }: { children: React.ReactNode
           <div className="w-10 shrink-0" aria-hidden />
         </header>
 
-        <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-10">
-          <div className="mx-auto max-w-6xl animate-fade-in">{children}</div>
+        <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">
+          <div className="mx-auto max-w-5xl animate-fade-in">{children}</div>
         </main>
       </div>
     </div>
