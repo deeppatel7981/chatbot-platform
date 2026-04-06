@@ -1,5 +1,6 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
+import { debugDbHost } from "@/lib/debug";
 import * as schema from "./schema";
 import { poolConfigFromDatabaseUrl } from "./pg-config";
 
@@ -11,6 +12,7 @@ export function getPool(): Pool {
   if (!url) {
     throw new Error("DATABASE_URL is not set");
   }
+  debugDbHost(url, "pool");
   pool = new Pool({ ...poolConfigFromDatabaseUrl(url), max: 10 });
   return pool;
 }

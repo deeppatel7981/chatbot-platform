@@ -1,10 +1,20 @@
 import { NextResponse } from "next/server";
 
-/** No DB or env required — use to confirm the deployment URL is correct (Vercel vs app vs DATABASE_URL). */
+/** No DB required. With DEBUG=true, adds non-secret deploy hints (Vercel env, region). */
 export async function GET() {
-  return NextResponse.json({
+  const body: Record<string, unknown> = {
     ok: true,
     service: "chatbot-platform",
     time: new Date().toISOString(),
-  });
+  };
+  if (process.env.DEBUG === "true") {
+    body.debug = {
+      nodeEnv: process.env.NODE_ENV,
+      vercelEnv: process.env.VERCEL_ENV ?? null,
+      vercelRegion: process.env.VERCEL_REGION ?? null,
+      hasDatabaseUrl: Boolean(process.env.DATABASE_URL),
+      hasNextAuthSecret: Boolean(process.env.NEXTAUTH_SECRET),
+    };
+  }
+  return NextResponse.json(body);
 }
