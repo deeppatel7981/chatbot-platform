@@ -1,7 +1,18 @@
 /**
  * Plain-language value for the merchant / operator using the console.
  */
-export default function BusinessBenefitsCard() {
+export default function BusinessBenefitsCard({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <section className="mb-10 rounded-2xl border border-zinc-200 bg-zinc-50/50 p-5 dark:border-zinc-800 dark:bg-zinc-950/50">
+        <h2 className="text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Why teams use this</h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+          One inbox for website + WhatsApp, answers grounded in your FAQs and files, and clear flags when a person should
+          step in—so you miss fewer buyers and spend less time on repeat questions.
+        </p>
+      </section>
+    );
+  }
   return (
     <section className="mb-10 rounded-2xl border border-zinc-200 bg-gradient-to-b from-white to-zinc-50/80 p-6 shadow-sm dark:border-zinc-800 dark:from-zinc-950 dark:to-zinc-900/80 sm:p-8">
       <h2 className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">

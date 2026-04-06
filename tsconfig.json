@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@chatbot/core": ["./packages/core/src/index.ts"]
     }
   },
   "include": [

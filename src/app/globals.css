@@ -9,6 +9,7 @@
   --accent: #059669;
   --accent-muted: rgba(5, 150, 105, 0.1);
   --ring: rgba(24, 24, 27, 0.12);
+  --dashboard-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 @theme inline {
@@ -22,11 +23,14 @@
   :root {
     --background: #09090b;
     --foreground: #fafafa;
-    --app-surface: #18181b;
-    --card: #18181b;
+    --app-surface: #11131a;
+    --card: #151924;
     --accent: #34d399;
     --accent-muted: rgba(52, 211, 153, 0.12);
     --ring: rgba(255, 255, 255, 0.1);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --dashboard-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.02);
   }
 }
 
@@ -36,6 +40,10 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.shadow-dashboard-card {
+  box-shadow: var(--dashboard-card-shadow);
 }
 
 ::selection {

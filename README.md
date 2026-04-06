@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chatbot platform
 
-## Getting Started
+Next.js (App Router) admin + marketing site, API routes, Drizzle ORM + Postgres (pgvector). Auth via NextAuth (credentials).
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
+cp .env.example .env.local
+# Set MOCK_DATA=true for demo mode without a database (login: any email + password "admin")
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+|--------|---------|
+| `npm run dev` | Dev server |
+| `npm run build` | Production build |
+| `npm run test` | Vitest (app + `@chatbot/core`) |
+| `npm run db:push` | Push Drizzle schema to `DATABASE_URL` |
+| `npm run db:migrate` | Run Drizzle migrations |
 
-## Learn More
+## Deploy fast (recommended)
 
-To learn more about Next.js, take a look at the following resources:
+**Vercel** (hosting) + **Supabase** (Postgres): minimal ops, same stack you use locally.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Supabase**: create project → enable `vector` extension → copy DB URL.  
+2. **Schema**: `MOCK_DATA=false npm run db:push` against that URL once.  
+3. **Vercel**: import repo → set env vars → deploy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Full checklist: **[docs/deploy-fast.md](docs/deploy-fast.md)**
 
-## Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Required Vercel environment variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable | Purpose |
+|----------|---------|
+| `DATABASE_URL` | Supabase Postgres URI (pooler recommended for serverless) |
+| `NEXTAUTH_SECRET` | e.g. `openssl rand -base64 32` |
+| `NEXTAUTH_URL` | `https://your-project.vercel.app` or custom domain |
+| `MOCK_DATA` | `false` in production |
+| `OPENAI_API_KEY` | Chat / RAG |
+
+Optional: `OPENAI_CHAT_MODEL`, WhatsApp and AWS keys for webhooks/S3—see `.env.example`.
+
+### Region / latency
+
+In the Vercel project **Settings → Functions**, pick a region close to your users (e.g. **Mumbai `bom1`** for India).
+
+## Docs
+
+- [Fast deploy (Vercel + Supabase)](docs/deploy-fast.md)
+- [Front-end product requirements](docs/frontend-product-requirements.md)
+- [AWS SaaS implementation plan](docs/engineering-aws-saas-implementation.md) (optional later path)
+
+## Monorepo
+
+- `packages/core` — shared domain logic (`@chatbot/core`), unit-tested without React.

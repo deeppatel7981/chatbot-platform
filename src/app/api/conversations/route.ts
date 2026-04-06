@@ -17,23 +17,28 @@ export async function GET() {
     return NextResponse.json({ data: mockConversations });
   }
 
-  const db = getDb();
-  const rows = await db
-    .select({
-      id: conversations.id,
-      channel: conversations.channel,
-      status: conversations.status,
-      needsHuman: conversations.needsHuman,
-      lastConfidence: conversations.lastConfidence,
-      updatedAt: conversations.updatedAt,
-      clientName: clients.name,
-      clientId: clients.id,
-    })
-    .from(conversations)
-    .innerJoin(clients, eq(conversations.clientId, clients.id))
-    .where(eq(conversations.organizationId, orgId))
-    .orderBy(desc(conversations.updatedAt))
-    .limit(100);
+  try {
+    const db = getDb();
+    const rows = await db
+      .select({
+        id: conversations.id,
+        channel: conversations.channel,
+        status: conversations.status,
+        needsHuman: conversations.needsHuman,
+        lastConfidence: conversations.lastConfidence,
+        updatedAt: conversations.updatedAt,
+        clientName: clients.name,
+        clientId: clients.id,
+      })
+      .from(conversations)
+      .innerJoin(clients, eq(conversations.clientId, clients.id))
+      .where(eq(conversations.organizationId, orgId))
+      .orderBy(desc(conversations.updatedAt))
+      .limit(100);
 
-  return NextResponse.json({ data: rows });
+    return NextResponse.json({ data: rows });
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ error: message }, { status: 503 });
+  }
 }

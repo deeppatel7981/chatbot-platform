@@ -29,13 +29,19 @@ export default function ForBusinessSection() {
         </ul>
         <div className="mt-6 flex flex-wrap gap-2">
           <Link
-            href="/login"
-            className="inline-flex rounded-lg bg-zinc-900 px-5 py-2 text-sm font-medium text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+            href="/signup"
+            className="inline-flex rounded-lg bg-emerald-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
           >
-            Open console
+            Start free
           </Link>
           <Link
-            href="/solutions"
+            href="/login"
+            className="inline-flex rounded-lg border border-zinc-200 bg-white px-5 py-2 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+          >
+            Sign in
+          </Link>
+          <Link
+            href="/#how-it-fits"
             className="inline-flex rounded-lg border border-zinc-200 px-5 py-2 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
           >
             How it fits

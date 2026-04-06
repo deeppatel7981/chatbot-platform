@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import MarketingFooter from "@/components/marketing/MarketingFooter";
 import SiteHeader from "@/components/marketing/SiteHeader";
+import { APP_DISPLAY_NAME } from "@/lib/branding";
+
+export const metadata: Metadata = {
+  title: `Solutions — ${APP_DISPLAY_NAME}`,
+  description: `How ${APP_DISPLAY_NAME} fits multi-brand customer ops: console, channels, and safe handoff.`,
+};
 
 const STEPS = [
   {
@@ -22,9 +30,10 @@ const STEPS = [
 
 export default function SolutionsPage() {
   return (
-    <div className="min-h-screen hero-gradient">
+    <div className="relative min-h-screen overflow-hidden hero-gradient mesh-bg">
       <SiteHeader />
-      <main className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10 lg:max-w-5xl xl:max-w-6xl xl:px-12 2xl:max-w-7xl">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(250,250,250,0.9))] dark:bg-[linear-gradient(to_bottom,transparent,rgba(9,9,11,0.85))]" />
+      <main className="relative mx-auto w-full max-w-4xl px-6 py-16 sm:px-10 lg:max-w-5xl xl:max-w-6xl xl:px-12 2xl:max-w-7xl">
         <p className="text-sm font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Customer use case</p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           How we fit your client workflow
@@ -34,7 +43,7 @@ export default function SolutionsPage() {
           credentials — while your operators see a single inbox and analytics layer.
         </p>
 
-        <ol className="mt-12 space-y-12">
+        <ol id="flow" className="mt-12 scroll-mt-24 space-y-12">
           {STEPS.map((s) => (
             <li
               key={s.title}
@@ -69,11 +78,10 @@ export default function SolutionsPage() {
         </div>
 
         <div className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-700 dark:bg-zinc-900/80">
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">LLM options</h2>
+          <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">AI &amp; knowledge</h2>
           <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
-            Chat uses OpenAI today (configurable per workspace under Settings → AI). Embeddings use{" "}
-            <code className="rounded bg-white px-1 dark:bg-zinc-800">text-embedding-3-small</code> for pgvector. For
-            India residency or custom models, Bedrock or self-hosted backends can plug into the same orchestration layer.
+            Answers are grounded in what you upload. Chat and embedding models are configurable under workspace settings —
+            your customers never see “orchestration,” only helpful replies and clear handoff.
           </p>
           <Link
             href="/login"
@@ -83,6 +91,7 @@ export default function SolutionsPage() {
           </Link>
         </div>
       </main>
+      <MarketingFooter />
     </div>
   );
 }

@@ -165,6 +165,49 @@ export const leadEvents = pgTable(
   (t) => [index("lead_events_org_idx").on(t.organizationId)]
 );
 
+/** Sales pipeline record (distinct from lead_events analytics stream). */
+export const leads = pgTable(
+  "leads",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    organizationId: uuid("organization_id")
+      .notNull()
+      .references(() => organizations.id, { onDelete: "cascade" }),
+    contactId: uuid("contact_id").references(() => contacts.id, { onDelete: "set null" }),
+    conversationId: uuid("conversation_id").references(() => conversations.id, { onDelete: "set null" }),
+    title: text("title").notNull(),
+    status: varchar("status", { length: 32 }).notNull().default("new"),
+    source: varchar("source", { length: 64 }),
+    intent: varchar("intent", { length: 64 }),
+    assignedToUserId: uuid("assigned_to_user_id").references(() => users.id, { onDelete: "set null" }),
+    notes: text("notes"),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => [
+    index("leads_org_idx").on(t.organizationId),
+    index("leads_status_idx").on(t.organizationId, t.status),
+  ]
+);
+
+/** Per-workspace automation toggles and config. */
+export const automations = pgTable(
+  "automations",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    organizationId: uuid("organization_id")
+      .notNull()
+      .references(() => organizations.id, { onDelete: "cascade" }),
+    key: varchar("key", { length: 64 }).notNull(),
+    name: text("name").notNull(),
+    enabled: boolean("enabled").notNull().default(false),
+    config: jsonb("config").$type<Record<string, unknown>>().notNull().default({}),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => [uniqueIndex("automations_org_key_unique").on(t.organizationId, t.key)]
+);
+
 export const auditLogs = pgTable(
   "audit_logs",
   {

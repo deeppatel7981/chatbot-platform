@@ -21,7 +21,7 @@ const PANELS = [
     title: "Widget + WhatsApp, same brain",
     copy: "Shoppers stay on the site they trust; WhatsApp users get the same answers. Public APIs are keyed by client — no secrets in the browser.",
     img: "/illustrations/channels.svg",
-    cta: { href: "/solutions", text: "Read the flow" },
+    cta: { href: "/solutions#flow", text: "Read the flow" },
   },
   {
     id: "trust",
@@ -40,7 +40,7 @@ export default function HomeJourney() {
   const active = PANELS.find((p) => p.id === open) ?? PANELS[0];
 
   return (
-    <section className="border-t border-zinc-200/70 pt-12 dark:border-zinc-800">
+    <section id="how-it-fits" className="scroll-mt-24 border-t border-zinc-200/70 pt-12 dark:border-zinc-800">
       <h2 className="text-center text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-2xl">
         How it fits your team
       </h2>

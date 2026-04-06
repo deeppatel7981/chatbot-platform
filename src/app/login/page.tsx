@@ -17,7 +17,15 @@ const LoginPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [mockMode, setMockMode] = useState<boolean | null>(null);
   const [healthHint, setHealthHint] = useState<string>("");
+  const [registeredBanner, setRegisteredBanner] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const q = new URLSearchParams(window.location.search);
+      if (q.get("registered") === "1") setRegisteredBanner(true);
+    }
+  }, []);
 
   useEffect(() => {
     const check = async () => {
@@ -102,6 +110,11 @@ const LoginPage = () => {
             transition={{ duration: 0.35 }}
             className="rounded-2xl border border-zinc-200/80 bg-white/95 p-6 shadow-2xl shadow-zinc-900/10 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/95 sm:p-8"
           >
+            {registeredBanner && (
+              <p className="mb-4 rounded-xl border border-emerald-200/80 bg-emerald-50/90 px-4 py-3 text-sm text-emerald-950 dark:border-emerald-900/50 dark:bg-emerald-950/40 dark:text-emerald-100">
+                Account created — sign in with your email and password below.
+              </p>
+            )}
             {mockMode === true && (
               <p className="mb-4 rounded-xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-sm text-amber-950 dark:border-amber-900/50 dark:bg-amber-950/40 dark:text-amber-100">
                 <strong>Mock data</strong> — use any email and password{" "}
@@ -153,7 +166,17 @@ const LoginPage = () => {
               </Button>
             </form>
 
-            <p className="mt-6 text-center text-xs leading-relaxed text-zinc-500 dark:text-zinc-500">
+            <p className="mt-6 text-center text-sm text-zinc-600 dark:text-zinc-400">
+              No account?{" "}
+              <Link
+                href="/signup"
+                className="font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-zinc-100"
+              >
+                Create a workspace
+              </Link>
+            </p>
+
+            <p className="mt-4 text-center text-xs leading-relaxed text-zinc-500 dark:text-zinc-500">
               {mockMode === true ? (
                 <>
                   Mock mode — no Postgres. For production data, set{" "}

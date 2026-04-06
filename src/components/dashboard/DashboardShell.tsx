@@ -3,19 +3,45 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CLIENT_BRAND_MARK, CLIENT_BRAND_NAME } from "@/lib/branding";
+import DataSourceBanner from "@/components/dashboard/DataSourceBanner";
 import { signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-const NAV = [
-  { href: "/dashboard", label: "Overview", icon: "◆" },
-  { href: "/dashboard/clients", label: "Clients", icon: "◎" },
-  { href: "/dashboard/integrations", label: "Integrations", icon: "⎘" },
-  { href: "/dashboard/knowledge-base", label: "Knowledge", icon: "◇" },
-  { href: "/dashboard/bot-preview", label: "Widget", icon: "⬡" },
-  { href: "/dashboard/chat-logs", label: "Conversations", icon: "○" },
-  { href: "/dashboard/analytics", label: "Analytics", icon: "▣" },
-  { href: "/dashboard/payments", label: "Payments", icon: "¤" },
-  { href: "/dashboard/settings", label: "Settings", icon: "⚙" },
+const NAV_SECTIONS = [
+  {
+    heading: "Workspace",
+    items: [
+      { href: "/dashboard", label: "Overview", icon: "◆" },
+      { href: "/dashboard/clients", label: "Clients", icon: "◎" },
+      { href: "/dashboard/team", label: "Team", icon: "T" },
+      { href: "/dashboard/settings", label: "Settings", icon: "⚙" },
+    ],
+  },
+  {
+    heading: "Operations",
+    items: [
+      { href: "/dashboard/chat-logs", label: "Conversations", icon: "○" },
+      { href: "/dashboard/leads", label: "Leads", icon: "●" },
+      { href: "/dashboard/contacts", label: "Contacts", icon: "☉" },
+      { href: "/dashboard/analytics", label: "Analytics", icon: "▣" },
+    ],
+  },
+  {
+    heading: "Setup",
+    items: [
+      { href: "/dashboard/knowledge-base", label: "Knowledge", icon: "◇" },
+      { href: "/dashboard/integrations", label: "Integrations", icon: "⎘" },
+      { href: "/dashboard/bot-preview", label: "Widget", icon: "⬡" },
+      { href: "/dashboard/automations", label: "Automations", icon: "⚡" },
+    ],
+  },
+  {
+    heading: "Account",
+    items: [
+      { href: "/dashboard/payments", label: "Payments", icon: "¤" },
+      { href: "/dashboard/help", label: "Help", icon: "H" },
+    ],
+  },
 ] as const;
 
 function isActiveNav(href: string, pathname: string) {
@@ -46,7 +72,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
 
   const sidebar = (
     <div className="flex h-full min-h-0 flex-col overflow-hidden">
-      <div className="mb-8 flex shrink-0 items-center gap-3 px-1">
+      <div className="mb-6 flex shrink-0 items-center gap-3 px-1">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-xs font-bold tracking-tight text-white dark:bg-zinc-100 dark:text-zinc-900">
           {CLIENT_BRAND_MARK}
         </div>
@@ -55,39 +81,48 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         </div>
       </div>
 
-      <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain" aria-label="Main">
-        {NAV.map((item) => {
-          const active = isActiveNav(item.href, pathname);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              title={item.label}
-              className={[
-                "group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150",
-                active
-                  ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-50"
-                  : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/80 dark:hover:text-zinc-100",
-              ].join(" ")}
-            >
-              <span
-                className={[
-                  "flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-xs tabular-nums transition-colors",
-                  active
-                    ? "bg-zinc-900 text-white shadow-sm dark:bg-zinc-100 dark:text-zinc-900"
-                    : "bg-zinc-50 text-zinc-500 group-hover:text-zinc-700 dark:bg-zinc-800/50 dark:text-zinc-500 dark:group-hover:text-zinc-300",
-                ].join(" ")}
-                aria-hidden
-              >
-                {item.icon}
-              </span>
-              {item.label}
-            </Link>
-          );
-        })}
+      <nav className="flex min-h-0 flex-1 flex-col gap-0 overflow-y-auto overscroll-contain pr-0.5" aria-label="Main">
+        {NAV_SECTIONS.map((section) => (
+          <div key={section.heading} className="mb-4 last:mb-0">
+            <p className="mb-1.5 px-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+              {section.heading}
+            </p>
+            <div className="flex flex-col gap-0.5">
+              {section.items.map((item) => {
+                const active = isActiveNav(item.href, pathname);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    title={item.label}
+                    className={[
+                      "group flex items-center gap-3 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150",
+                      active
+                        ? "border-l-2 border-violet-500 bg-zinc-100 pl-[10px] text-zinc-900 dark:bg-zinc-800/90 dark:text-zinc-50"
+                        : "border-l-2 border-transparent pl-[10px] text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/80 dark:hover:text-zinc-100",
+                    ].join(" ")}
+                  >
+                    <span
+                      className={[
+                        "flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-[11px] tabular-nums transition-colors",
+                        active
+                          ? "bg-violet-600 text-white shadow-sm dark:bg-violet-500"
+                          : "bg-zinc-50 text-zinc-500 group-hover:text-zinc-700 dark:bg-zinc-800/50 dark:text-zinc-500 dark:group-hover:text-zinc-300",
+                      ].join(" ")}
+                      aria-hidden
+                    >
+                      {item.icon}
+                    </span>
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </nav>
 
-      <div className="shrink-0 space-y-2 border-t border-zinc-200/80 pt-4 dark:border-zinc-800">
+      <div className="mt-auto shrink-0 space-y-2 border-t border-zinc-200/80 pt-4 dark:border-zinc-800">
         <Link
           href="/#for-business"
           className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/80 dark:hover:text-zinc-100"
@@ -111,7 +146,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
       <button
         type="button"
         onClick={handleLogout}
-        className="mt-4 w-full shrink-0 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+        className="mt-3 w-full shrink-0 rounded-lg border border-zinc-200/90 bg-zinc-50/80 px-3 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/80 dark:text-zinc-300 dark:hover:bg-zinc-800"
       >
         Sign out
       </button>
@@ -129,14 +164,14 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         />
       ) : null}
 
-      <aside className="hidden w-60 shrink-0 border-r border-zinc-200/90 bg-white md:flex md:flex-col md:px-3 md:py-6 dark:border-zinc-800 dark:bg-zinc-950">
+      <aside className="hidden w-60 shrink-0 border-r border-zinc-200/90 bg-white md:flex md:flex-col md:px-3 md:py-6 dark:border-zinc-800 dark:bg-[#0d0f14]">
         {sidebar}
       </aside>
 
       <aside
         id="mobile-nav"
         className={[
-          "fixed inset-y-0 left-0 z-50 flex w-[min(18rem,100vw)] flex-col border-r border-zinc-200 bg-white p-6 shadow-xl transition-transform duration-300 ease-out dark:border-zinc-800 dark:bg-zinc-950 md:hidden",
+          "fixed inset-y-0 left-0 z-50 flex w-[min(18rem,100vw)] flex-col border-r border-zinc-200 bg-white p-6 shadow-xl transition-transform duration-300 ease-out dark:border-zinc-800 dark:bg-[#0d0f14] md:hidden",
           mobileOpen ? "translate-x-0" : "-translate-x-full",
         ].join(" ")}
       >
@@ -166,8 +201,11 @@ export default function DashboardShell({ children }: { children: React.ReactNode
           <div className="w-10 shrink-0" aria-hidden />
         </header>
 
-        <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">
-          <div className="mx-auto w-full max-w-6xl animate-fade-in xl:max-w-7xl 2xl:max-w-[90rem]">{children}</div>
+        <main className="flex-1 overflow-auto px-4 py-6 sm:px-8 sm:py-8 lg:px-10">
+          <div className="mx-auto w-full max-w-6xl animate-fade-in xl:max-w-7xl 2xl:max-w-[90rem]">
+            <DataSourceBanner />
+            {children}
+          </div>
         </main>
       </div>
     </div>
