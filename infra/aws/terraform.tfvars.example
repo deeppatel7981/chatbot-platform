@@ -1,0 +1,8 @@
+# Copy to terraform.tfvars (gitignored) and adjust.
+# aws_account_id = "002228171094"
+# aws_region     = "ap-south-1"
+
+# Strongly recommended: only your IP can hit Postgres (replace with your public IP).
+# rds_allowed_cidr_blocks = ["203.0.113.10/32"]
+
+# If unset in tfvars, Terraform allows 0.0.0.0/0 — dev only.

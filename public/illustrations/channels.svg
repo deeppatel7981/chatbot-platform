@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="280" fill="none" viewBox="0 0 480 280" role="img" aria-label="Website and WhatsApp channels">
+  <rect width="480" height="280" rx="24" fill="#f4f4f5"/>
+  <rect x="48" y="56" width="180" height="168" rx="16" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+  <rect x="68" y="80" width="140" height="96" rx="8" fill="#eef2ff"/>
+  <circle cx="138" cy="118" r="18" fill="#6366f1" opacity="0.3"/>
+  <rect x="80" y="188" width="116" height="10" rx="4" fill="#d4d4d8"/>
+  <rect x="252" y="56" width="180" height="168" rx="16" fill="#fff" stroke="#22c55e" stroke-width="2"/>
+  <path d="M312 108c0-22 18-40 40-40s40 18 40 40-18 40-40 40c-4 0-8-.5-12-1.5l-28 8 8-24c-6-8-10-18-10-28z" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <circle cx="352" cy="108" r="6" fill="#22c55e"/>
+  <rect x="276" y="188" width="132" height="10" rx="4" fill="#d4d4d8"/>
+  <path d="M228 140h24" stroke="#a1a1aa" stroke-width="3" stroke-linecap="round"/>
+  <path d="M252 132v16" stroke="#a1a1aa" stroke-width="3" stroke-linecap="round"/>
+</svg>

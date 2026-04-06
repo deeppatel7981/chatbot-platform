@@ -1,24 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
+import SiteHeader from "@/components/marketing/SiteHeader";
+import ForBusinessSection from "@/components/marketing/ForBusinessSection";
+import HomeJourney from "@/components/marketing/HomeJourney";
+import MarketingHero from "@/components/marketing/MarketingHero";
+
+/** Avoid stale CDN/browser cache hiding UI updates during iteration. */
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-2xl flex-col items-center justify-center py-24 px-6 bg-white dark:bg-black">
-        <Image className="dark:invert mb-6" src="/next.svg" alt="Next.js logo" width={120} height={24} priority />
+    <div className="relative min-h-screen overflow-hidden hero-gradient mesh-bg">
+      <SiteHeader />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(250,250,250,0.9))] dark:bg-[linear-gradient(to_bottom,transparent,rgba(9,9,11,0.85))]" />
 
-        <h1 className="text-3xl font-semibold text-black dark:text-zinc-50 mb-2">Chatbot Platform</h1>
-        <p className="max-w-lg text-center text-lg text-zinc-600 dark:text-zinc-400 mb-6">
-          A simple admin interface for managing chatbots. Sign in to access dashboards, settings, and
-          analytics for your bots.
-        </p>
-
-        <Link
-          href="/login"
-          className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-white hover:bg-blue-700"
-        >
-          Go to Login
-        </Link>
+      <main className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col justify-start px-6 py-12 sm:px-10 lg:px-12">
+        <MarketingHero />
+        <ForBusinessSection />
+        <HomeJourney />
       </main>
     </div>
   );
