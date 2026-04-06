@@ -37,8 +37,12 @@ Goal: ship the app with **minimal ops**—hosted Postgres + Next.js on Vercel. Y
    | `MOCK_DATA` | `false` for real data. |
    | `OPENAI_API_KEY` | Required for chat/RAG features. |
    | `OPENAI_CHAT_MODEL` | Optional; default e.g. `gpt-4o-mini`. |
+   | `NEXT_PUBLIC_SUPABASE_URL` | Optional — `https://xxx.supabase.co` from **API** settings. |
+   | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` | Optional — publishable/anon key for the Supabase JS client. |
 
-3. Deploy. First signup/login will create users in **your** DB (not Supabase Auth—you’re using **NextAuth** + credentials unless you change it).
+   Drizzle still uses **`DATABASE_URL`** only. The `NEXT_PUBLIC_SUPABASE_*` vars enable **`@supabase/supabase-js`** in the browser when you use `getSupabaseBrowserClient()` (e.g. Storage or Supabase Auth later).
+
+3. Deploy. First signup/login will create users in **your** Postgres via **NextAuth** + credentials unless you add Supabase Auth.
 
 ## 3. Optional
 

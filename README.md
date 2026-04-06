@@ -45,6 +45,8 @@ Full checklist: **[docs/deploy-fast.md](docs/deploy-fast.md)**
 | `MOCK_DATA` | `false` in production |
 | `OPENAI_API_KEY` | Chat / RAG |
 
+**Optional (Supabase client in the browser):** `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` — same values as in the Supabase dashboard **API** page. Use `src/lib/supabase` (`getSupabaseBrowserClient`) when you add Storage, Realtime, or Supabase Auth. Drizzle does not use these.
+
 Optional: `OPENAI_CHAT_MODEL`, WhatsApp and AWS keys for webhooks/S3—see `.env.example`.
 
 ### Region / latency
