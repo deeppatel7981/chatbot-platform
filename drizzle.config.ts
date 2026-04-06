@@ -4,6 +4,10 @@ import { poolConfigFromDatabaseUrl } from "./src/lib/db/pg-config";
 
 const c = poolConfigFromDatabaseUrl(getDatabaseUrlOrThrow());
 
+/** Drizzle expects string creds; pg's PoolConfig allows password as a function for IAM rotation. */
+const user = typeof c.user === "string" ? c.user : undefined;
+const password = typeof c.password === "string" ? c.password : undefined;
+
 export default defineConfig({
   schema: "./src/lib/db/schema.ts",
   out: "./drizzle",
@@ -11,8 +15,8 @@ export default defineConfig({
   dbCredentials: {
     host: c.host!,
     port: c.port,
-    user: c.user,
-    password: c.password,
+    user,
+    password,
     database: c.database!,
     ssl: c.ssl,
   },
