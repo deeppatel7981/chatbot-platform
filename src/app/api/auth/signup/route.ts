@@ -55,18 +55,25 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Workspace name is required" }, { status: 400 });
   }
 
-  const db = getDb();
-
-  const [existing] = await db.select({ id: users.id }).from(users).where(eq(users.email, email)).limit(1);
-  if (existing) {
-    return NextResponse.json({ error: "An account with this email already exists" }, { status: 409 });
+  const baseSlug = slugify(organizationName);
+  let passwordHash: string;
+  try {
+    passwordHash = await bcrypt.hash(password, 10);
+  } catch (e) {
+    console.error("[signup] bcrypt", e);
+    return NextResponse.json({ error: "Could not create account. Try again." }, { status: 500 });
   }
 
-  const baseSlug = slugify(organizationName);
-  const slug = await uniqueSlug(db, baseSlug);
-  const passwordHash = await bcrypt.hash(password, 10);
-
   try {
+    const db = getDb();
+
+    const [existing] = await db.select({ id: users.id }).from(users).where(eq(users.email, email)).limit(1);
+    if (existing) {
+      return NextResponse.json({ error: "An account with this email already exists" }, { status: 409 });
+    }
+
+    const slug = await uniqueSlug(db, baseSlug);
+
     const result = await db.transaction(async (tx) => {
       const [org] = await tx
         .insert(organizations)
@@ -112,6 +119,47 @@ export async function POST(req: Request) {
     });
   } catch (e) {
     console.error("[signup]", e);
-    return NextResponse.json({ error: "Could not create account. Try again." }, { status: 500 });
+    const message = e instanceof Error ? e.message : String(e);
+    const dev = process.env.NODE_ENV === "development";
+    const details = dev ? message : undefined;
+
+    if (message.includes("DATABASE_URL is not set")) {
+      return NextResponse.json(
+        { error: "Database is not configured. Set DATABASE_URL in .env.local.", details },
+        { status: 503 }
+      );
+    }
+    if (
+      message.includes("ECONNREFUSED") ||
+      message.includes("ETIMEDOUT") ||
+      message.includes("getaddrinfo") ||
+      message.includes("ENOTFOUND")
+    ) {
+      return NextResponse.json(
+        {
+          error: "Cannot connect to the database. Check DATABASE_URL and that Postgres is reachable.",
+          details,
+        },
+        { status: 503 }
+      );
+    }
+    const code = typeof e === "object" && e !== null && "code" in e ? String((e as { code?: string }).code) : "";
+    if (code === "42P01" || message.includes("does not exist") && message.includes("relation")) {
+      return NextResponse.json(
+        { error: "Database schema is missing. Run: npm run db:push", details },
+        { status: 500 }
+      );
+    }
+    if (code === "23505" || message.includes("unique constraint")) {
+      return NextResponse.json(
+        { error: "An account or workspace with this information already exists.", details },
+        { status: 409 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: "Could not create account. Try again.", details },
+      { status: 500 }
+    );
   }
 }

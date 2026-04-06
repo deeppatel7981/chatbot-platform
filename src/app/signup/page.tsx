@@ -72,7 +72,14 @@ export default function SignupPage() {
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError(typeof json.error === "string" ? json.error : "Could not create account");
+        const base =
+          typeof json.error === "string"
+            ? json.error
+            : json.error != null
+              ? String(json.error)
+              : "Could not create account";
+        const hint = typeof json.details === "string" ? ` (${json.details})` : "";
+        setError(base + hint);
         setSubmitting(false);
         return;
       }
