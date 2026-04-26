@@ -1,0 +1,395 @@
+Riverside Homewares — extended internal knowledge base (sample for RAG testing)
+Document version: 2026-01-15. Classification: staff and chatbot reference only.
+
+================================================================================
+SECTION 1 — COMPANY OVERVIEW
+================================================================================
+
+About us
+Riverside Homewares is an independent retail store based in Pune, Maharashtra. We specialize in kitchenware, table linens, bath textiles, lighting, and compact furniture for urban apartments. The business was founded in 2019 by siblings Meera and Arjun Kulkarni. Our registered trade name is Riverside Homewares; legal entity for invoices is Kulkarni Retail Pvt Ltd, GSTIN format as printed on each bill.
+
+Mission and values
+We aim to stock durable, well-designed goods at fair mid-market prices. We prioritize suppliers who can provide spare parts or clear warranty paths for electrical goods. We do not sell counterfeit branded goods. Our tagline is "Quality for everyday homes."
+
+Store footprint
+Primary showroom: ground floor, 42 MG Road, Camp, Pune 411001. There is no second branch. We do not operate franchise locations. All online orders ship from the Pune warehouse attached to the showroom.
+
+================================================================================
+SECTION 2 — HOURS, LOCATION, CONTACT
+================================================================================
+
+Standard store hours
+Monday through Saturday: 10:00 AM to 8:00 PM India Standard Time (IST). We begin closing procedures at 7:45 PM; new complex purchases after that time may be declined at manager discretion.
+
+Sunday and holidays
+The showroom is closed every Sunday. On Maharashtra state public holidays listed in the official government gazette, the store is closed unless a special banner on the website says otherwise (e.g. pre-Diwali extended hours). When in doubt, customers should phone before visiting.
+
+How to reach us
+Voice phone (no SMS): +91 20 1234 5678. Email for non-urgent matters: hello@riverside-homewares.example — target response within one business day. For order issues include order number in the subject line. We do not offer WhatsApp support for orders; do not publish a WhatsApp number for commerce.
+
+Parking
+Street parking near MG Road is limited. The nearest paid parking is Camp Central Parking, five minutes walk. We cannot validate parking.
+
+================================================================================
+SECTION 3 — SHIPPING AND FULFILLMENT
+================================================================================
+
+Geographic coverage
+We ship only within the Republic of India. We do not export. We do not ship to PO boxes or army field post offices; a full street address with pin code is required.
+
+Carriers
+Standard orders use surface partners (names rotate by season; tracking link is in the confirmation email). Express metro service uses air-capable partners where available.
+
+Timelines
+Standard delivery: five to seven business days after payment clears in our bank or payment gateway. Express delivery (metros only): two to three business days after payment clears, subject to inventory confirmation. Business days exclude Sundays and public holidays at either origin (Pune) or destination hub.
+
+Cut-off times
+Orders paid before 2:00 PM IST on a business day typically enter the same-day packing queue. Orders after cut-off roll to the next business day.
+
+Damaged in transit
+Customer must report outer carton damage to the carrier when possible and email us within 48 hours of delivery with photos of the box and item. We file claims with the carrier and either replace the item or refund once the claim is accepted.
+
+================================================================================
+SECTION 4 — RETURNS, REFUNDS, EXCHANGES
+================================================================================
+
+General return window
+Unused items in original, unopened retail packaging may be returned within fourteen calendar days of the delivery timestamp shown on the carrier tracking. Refund goes to the original payment method only.
+
+Opened or used goods
+Opened or used items are not eligible for change-of-mind returns. Exception: manufacturing defect as defined below.
+
+Defective merchandise
+If an item is defective on arrival (e.g. lamp will not power on, pan coating visibly flaked before use), the customer must contact us within seven days of delivery with clear photos or a short video. We issue a prepaid return label for eligible pin codes, or arrange pickup in Pune city limits at no charge to the customer.
+
+Exchanges
+Size or color exchanges are treated as return plus new order if the original item is still in sellable condition within the fourteen-day window. If the replacement SKU costs more, the customer pays the difference; if less, we refund the difference after inspection.
+
+Non-returnable categories
+For hygiene reasons, opened bedding unless defective, opened personal care accessories bundled with textiles, and any item missing its serial sticker (where applicable) are final sale.
+
+================================================================================
+SECTION 5 — PAYMENTS AND INVOICING
+================================================================================
+
+Online payments
+We accept UPI apps, major Indian debit and credit cards, and net banking through our payment gateway. We do not accept cash on delivery for website orders.
+
+In-store payments
+Showroom accepts cash, Indian cards, and UPI. We do not accept foreign currency.
+
+GST and invoices
+GST invoices are emailed as PDF after purchase. B2B customers needing GSTIN on the invoice must enter it at checkout before payment; retroactive invoice correction is allowed only within the same calendar month and requires finance approval.
+
+================================================================================
+SECTION 6 — WARRANTY AND SERVICE
+================================================================================
+
+Electrical goods
+Desk lamps, rechargeable lights, and small appliances carry a twelve-month manufacturer warranty from the date of purchase on the invoice. Warranty is void if the serial label is removed, if unauthorized repair is attempted, or if water ingress is evident on non-waterproof models.
+
+Kitchen metal and cookware
+Knives, steel cookware, and non-electric gadgets have no express warranty beyond the fourteen-day return policy unless a manufacturing defect is documented within seven days of delivery.
+
+Repairs
+We do not operate an in-house repair shop. For warranty claims we coordinate with the brand service center or replace the unit per brand policy.
+
+================================================================================
+SECTION 7 — PRODUCT CATALOG (SKU REFERENCE)
+================================================================================
+
+Knives and cutting
+SKU RW-KNIFE-01: Chef knife set, three pieces, German steel, riveted handles, ₹2,499.
+SKU RW-KNIFE-PAR: Paring knife 9 cm, single, ₹449.
+SKU RW-KNIFE-BREAD: Serrated bread knife 20 cm, ₹799.
+SKU RW-BOARD-BAM: Bamboo cutting board 38x28 cm, ₹699.
+SKU RW-BOARD-PLA: Plastic cutting board set of two, dishwasher safe, ₹399.
+
+Cookware
+SKU RW-PAN-12: Non-stick frying pan 28 cm, induction base, ₹1,199.
+SKU RW-PAN-10: Non-stick frying pan 24 cm, induction base, ₹999.
+SKU RW-KADH-2L: Hard anodized kadhai 2 L with glass lid, ₹1,849.
+SKU RW-SAUCE-16: Stainless saucepan 16 cm with lid, ₹1,299.
+SKU RW-TAWA-28: Cast iron dosa tawa preseasoned 28 cm, ₹1,599.
+
+Bakeware and tools
+SKU RW-BAKE-SET: Carbon steel baking tray set of two, ₹899.
+SKU RW-WHISK-PRO: Balloon whisk stainless, ₹249.
+SKU RW-SPAT-SIL: Silicone spatula heat rated to 220°C, ₹199.
+
+Table and kitchen linens
+SKU RW-TOWEL-SET: Cotton bath towel set of four, 450 GSM, ₹899.
+SKU RW-TOWEL-HAND: Hand towel pair, striped, ₹349.
+SKU RW-TABLE-RUN: Table runner cotton 180x35 cm, ₹599.
+SKU RW-NAPKIN-6: Cloth napkin set of six, ₹449.
+
+Lighting
+SKU RW-LAMP-DESK: LED desk lamp dimmable with USB-A charging port, ₹1,649.
+SKU RW-LAMP-FLR: Floor lamp LED 12W with foot switch, ₹3,299.
+SKU RW-BULB-9W: LED bulb 9W warm white pack of four, ₹399.
+
+Storage and furniture
+SKU RW-SHELF-3T: Wall shelf three tiers 60 cm wide, max load 15 kg per tier, ₹2,199.
+SKU RW-STOOL-FLD: Folding step stool rated 100 kg, ₹1,299.
+SKU RW-CART-KIT: Kitchen trolley narrow width for gaps over 32 cm, ₹4,499.
+
+Drinkware
+SKU RW-FLASK-1L: Insulated steel flask 1 L, ₹1,099.
+SKU RW-MUG-SET: Ceramic mug set of four 350 ml, ₹599.
+
+================================================================================
+SECTION 8 — SEASONAL AND PROMOTIONS (EXAMPLES)
+================================================================================
+
+Diwali bundle (example copy for training; verify active offers on website)
+Historically we bundle SKU RW-LAMP-DESK with SKU RW-BULB-9W at a ten percent combo discount during Diwali week only. If the customer asks for a past year's bundle, confirm the current year's banner or offer table.
+
+Monsoon care
+During heavy monsoon months we double-wrap electrical SKUs in moisture barrier where the carrier allows. We do not guarantee monsoon delivery dates for surface routes to the Northeast; suggest express if urgent.
+
+================================================================================
+SECTION 9 — CHATBOT AND STAFF BEHAVIOR RULES
+================================================================================
+
+Accuracy
+Do not invent SKUs, prices, or policies. If information is not in this document or on the live website, say the team will confirm and follow up.
+
+Tone
+Professional, warm, concise. Support mixed English and Hindi in romanized form naturally.
+
+Escalation
+Billing disputes over ₹5,000, legal threats, or repeated complaints about the same order ID must be escalated to store manager on duty or hello@riverside-homewares.example with "ESCALATION" in the subject.
+
+================================================================================
+SECTION 10 — GLOSSARY
+================================================================================
+
+IST: India Standard Time.
+SKU: Stock keeping unit; our internal product code starting with RW-.
+GSM: Grams per square meter; higher GSM generally means thicker towels.
+Induction base: Cookware compatible with induction cooktops as well as gas.
+
+================================================================================
+SECTION 11 — FREQUENTLY ASKED QUESTIONS (CUSTOMER)
+================================================================================
+
+Q: Do you deliver on Sunday?
+A: Carriers may attempt Sunday delivery in some metros; our warehouse does not ship on Sunday. Tracking is authoritative.
+
+Q: Can I pick up online order in store?
+A: Yes if "store pickup" was selected at checkout and you receive a ready-for-pickup email. Bring government ID matching the order name.
+
+Q: Do you sharpen knives?
+A: No, we do not offer knife sharpening. We can recommend local services in Pune.
+
+Q: Is the cast iron tawa pre-seasoned?
+A: SKU RW-TAWA-28 ships preseasoned with a thin coat of oil; first-use care card is in the box.
+
+Q: What if my pin code is remote?
+A: Express may not be offered at checkout; standard timelines may extend by two to four days. Customer sees estimate before payment.
+
+Q: Corporate gifting?
+A: Orders above twenty-five units or ₹75,000 require a written quote from sales@riverside-homewares.example — allow three business days.
+
+================================================================================
+SECTION 12 — TROUBLESHOOTING (PRODUCT)
+================================================================================
+
+Desk lamp SKU RW-LAMP-DESK will not turn on
+Check mains outlet with another device. Ensure adapter is fully seated. Try long-press on power touch panel for three seconds. If still dead within seven days of delivery, start defect workflow with photos.
+
+Non-stick pan surface looks cloudy after first wash
+Minor haze from hot water and oil can look like damage; if food still releases and there is no flaking, it is usually normal. If coating flakes, defect workflow.
+
+USB port on lamp charges phone slowly
+The USB-A port is auxiliary (typically 5W class); it is not a fast charger. Do not use it for laptops.
+
+================================================================================
+SECTION 13 — EXTENDED SKU LIST (SMALL GOODS)
+================================================================================
+
+SKU RW-PEEL-Y: Y-peeler stainless blade, ₹179.
+SKU RW-GRAT-MIC: Microplane-style grater fine, ₹349.
+SKU RW-COLA-3L: Plastic colander 3 L with base, ₹279.
+SKU RW-LADL-SET: Silicone ladle and spoon set heat safe, ₹449.
+SKU RW-TONG-30: Locking tongs 30 cm stainless, ₹299.
+SKU RW-OVEN-MIT: Silicone oven mitt pair, ₹399.
+SKU RW-POT-HOLD: Quilted pot holder set of two, ₹249.
+SKU RW-APRON-CH: Adjustable chef apron cotton, ₹599.
+SKU RW-SALT-BOX: Bamboo salt cellar with swivel lid, ₹449.
+SKU RW-OIL-CRU: Glass oil cruet 500 ml with pourer, ₹329.
+SKU RW-SPICE-6: Spice jar set six pieces with rack, ₹899.
+SKU RW-TEA-INF: Stainless tea infuser basket, ₹199.
+SKU RW-KETT-2L: Stovetop kettle 2 L stainless whistle, ₹1,499.
+SKU RW-PRES-5L: Pressure cooker ISI marked 5 L, ₹2,899.
+SKU RW-IDLY-4: Idli stand four plates stainless, ₹799.
+SKU RW-APPAM-PAN: Appam pan cast iron preseasoned 22 cm, ₹1,199.
+SKU RW-ROTI-25: Tawa roti phulka 25 cm iron, ₹899.
+SKU RW-STRA-FIN: Fine mesh strainer 16 cm, ₹349.
+SKU RW-BOWL-SET: Mixing bowl set stainless three sizes, ₹1,199.
+SKU RW-MEAS-CUP: Measuring cup and spoon set plastic, ₹199.
+SKU RW-TIMER-DIG: Digital kitchen timer magnetic back, ₹249.
+SKU RW-SCALE-5K: Digital kitchen scale 5 kg 1 g steps, ₹899.
+SKU RW-THERM-PR: Probe thermometer for cooking, ₹649.
+SKU RW-MAT-SHE: Silicone baking mat half sheet, ₹599.
+SKU RW-ROLL-PIN: Marble rolling pin with stand, ₹1,299.
+SKU RW-CHAK-BEL: Chakla belan set marble chakla 25 cm, ₹1,499.
+
+================================================================================
+SECTION 14 — REGIONAL DELIVERY NOTES (INDICATIVE)
+================================================================================
+
+Mumbai and Pune: Usually fastest standard lane; one to two days faster than all-India average when inventory is local.
+
+Bengaluru and Hyderabad: Standard five to seven business days typical; express available.
+
+Delhi NCR: Standard five to eight business days; weather and fog in winter can add one to two days.
+
+Chennai and Kochi: Standard six to eight business days; monsoon surges possible.
+
+Guwahati and Northeast capitals: Standard eight to twelve business days surface; express not always offered for oversized cartons.
+
+Jammu and Kashmir and Ladakh: Certain SKUs with liquids or pressurized parts may be blocked at checkout per carrier rules; customer sees message before payment.
+
+================================================================================
+SECTION 15 — STAFF PROCEDURES (INVENTORY)
+================================================================================
+
+Cycle counts
+High-value SKUs (pressure cooker, kitchen trolley, floor lamp) are cycle-counted weekly on Monday morning before open.
+
+Damaged on floor
+Yellow sticker code DNF — display not for sale. Remove from web inventory same day if the SKU was listed online.
+
+Price changes
+Only the owner or designated pricing lead may change shelf labels and the POS master. Chatbot must never promise a price change not reflected on the website.
+
+================================================================================
+SECTION 16 — LOYALTY (PILOT PROGRAM COPY)
+================================================================================
+
+Riverside Circle (pilot)
+Customers who opt in with phone number earn one point per ₹100 spent in showroom or online. Two hundred points equals ₹100 off a future purchase. Points expire twenty-four months from earn date. Points cannot be bought, sold, or converted to cash. If a customer asks about loyalty, confirm whether the pilot is still active on the website FAQ before promising enrollment.
+
+================================================================================
+SECTION 17 — SAFETY AND COMPLIANCE
+================================================================================
+
+Pressure cookers
+Only sell ISI-marked pressure cookers we stock; never recommend modifying safety valves.
+
+Children's items
+We do not stock toys for under-three years unless clearly labeled with applicable safety marks; chatbot should not suggest our goods as toys.
+
+================================================================================
+SECTION 18 — SAMPLE DIALOG HINTS (NOT SCRIPT)
+================================================================================
+
+If user asks "cheapest pan" recommend SKU RW-PAN-10 at ₹999 unless they need 28 cm then RW-PAN-12 at ₹1,199.
+
+If user asks "bright light for study" recommend SKU RW-LAMP-DESK first; if they need room lighting suggest SKU RW-LAMP-FLR.
+
+If user asks return policy without details, give the fourteen-day unused rule and seven-day defect rule in two short sentences.
+
+================================================================================
+SECTION 19 — BULK ORDERS AND B2B
+================================================================================
+
+Minimums for quote
+Written quotes apply to single-SKU quantities of twelve or more, or mixed carts projected above ₹75,000 before tax. Quotes are valid fourteen calendar days unless marked otherwise.
+
+Payment terms B2B
+Approved B2B accounts may request net-fifteen payment after two successfully paid upfront orders; finance decision only.
+
+Delivery appointment
+Bulk deliveries to offices may require recipient signature and two-hour delivery window chosen by carrier; customer must provide security gate instructions in the order notes.
+
+================================================================================
+SECTION 20 — EXTENDED FAQ (SHIPPING AND RETURNS)
+================================================================================
+
+Q: My tracking shows delivered but I did not receive the package.
+A: Ask customer to check security, neighbors, and building reception. If still missing after twenty-four hours, open a carrier trace; we assist after internal ticket RW-TRACE is created.
+
+Q: Can I return a gift I did not purchase?
+A: Refunds for gifts without original payer involvement go as store credit only, within the same fourteen-day unused rules, with gift receipt or order number from purchaser.
+
+Q: Partial order arrived.
+A: Check email for split-shipment notice. If no notice, email support with order ID within forty-eight hours.
+
+Q: Wrong item shipped.
+A: Full replacement or prepaid return plus refund after we confirm warehouse error; do not ask customer to pay return shipping for our mistake.
+
+Q: Price dropped after I bought.
+A: We do not retroactively match promotional prices unless the purchase was within twenty-four hours and the promotion was already public on site at purchase time — requires manager approval.
+
+================================================================================
+SECTION 21 — CARE INSTRUCTIONS (SELECT SKUS)
+================================================================================
+
+SKU RW-TAWA-28 and SKU RW-APPAM-PAN
+Wash with hot water and soft brush only for first month; avoid harsh detergents until seasoning stabilizes. Dry on low heat on stove to prevent rust.
+
+SKU RW-PAN-10 and SKU RW-PAN-12
+Use wooden or silicone tools to extend non-stick life. Not for metal utensils. Max oven temperature 180°C if handle allows oven use; verify label on box.
+
+SKU RW-TOWEL-SET
+Machine wash cold first three washes to minimize lint; tumble dry low; avoid fabric softener on first wash for absorbency.
+
+SKU RW-LAMP-DESK
+Clean with dry microfiber only on LED head; unplug before cleaning base.
+
+SKU RW-PRES-5L
+Read enclosed pressure cooker manual before first use; never fill above two-thirds for foods that foam.
+
+================================================================================
+SECTION 22 — CITY PICKUP LOCKER PILOT (FICTIONAL)
+================================================================================
+
+If the website shows "Pune locker pilot" active, customers near FC Road can select locker pickup for orders under ₹3,000 and under 5 kg volumetric weight. Locker code valid forty-eight hours after SMS. If pilot inactive, all pickup is in-store MG Road only.
+
+================================================================================
+SECTION 23 — INVENTORY DISCONTINUATION POLICY
+================================================================================
+
+When a SKU is discontinued, remaining stock is sold at clearance on the website with banner "Last pieces." No rain checks once sold out. Warranty for electrical clearance items remains twelve months from customer purchase date if new in box.
+
+================================================================================
+SECTION 24 — ENVIRONMENT AND PACKAGING
+================================================================================
+
+We reuse clean inbound supplier boxes when size-appropriate to reduce waste. Customer may receive outer box with another brand printed; inner Riverside invoice confirms authenticity.
+
+================================================================================
+SECTION 25 — LONG-FORM TRAINING NARRATIVE (RAG STRESS TEST)
+================================================================================
+
+This paragraph exists to add contiguous prose for chunk-boundary testing. Meera Kulkarni oversees buying for textiles while Arjun focuses on metal goods and electricals. The store's relationship with suppliers in Moradabad, Manipur handloom cooperatives, and Coimbatore motor vendors is long-standing but not guaranteed exclusive. Customers sometimes ask whether we source "organic only" linens; currently only SKU RW-TABLE-RUN has a certified organic cotton variant when tagged "-ORG" on the shelf label — online listing may lag by one week. If organic is required, staff should verify batch tag before promising.
+
+Seasonal staffing doubles on weekends before Diwali; phone lines may queue up to five minutes. Callback option is not available; customer should email if hold time exceeds tolerance. Gift wrapping in-store is complimentary for items purchased same day under ₹2,000 total bill; above that a ₹30 per oversized box fee applies for specialty boxes only.
+
+Lost invoice reprint requires order ID or registered phone and is sent only to the original email on file for fraud prevention. B2B GST corrections need a ticket to finance with the accountant's written approval attached.
+
+================================================================================
+SECTION 26 — NUMERIC REFERENCE TABLE (EXAMPLE)
+================================================================================
+
+Order hotline extension map (voice tree): 1 for orders, 2 for returns, 3 for store directions, 0 for operator during business hours only.
+
+Warehouse aisle map is internal-only; do not read aisle numbers to customers.
+
+================================================================================
+SECTION 27 — COMPETITOR AND COMPARISON TALK
+================================================================================
+
+If customers compare us to large marketplaces, emphasize our verified warranty path, in-store inspection for locals, and curated SKU depth rather than infinite catalog. Never name competitors in writing in customer emails; verbal restraint applies to chatbot too.
+
+================================================================================
+SECTION 28 — APPENDIX: DUPLICATE-STYLE CHUNKS FOR RETRIEVAL
+================================================================================
+
+Reminder A: Sunday closed. Reminder B: No COD online. Reminder C: No PO boxes. Reminder D: Defect photos within seven days. Reminder E: Standard five to seven business days. Reminder F: Express metros two to three business days. Reminder G: GSTIN must be entered before payment for B2B invoice. Reminder H: Pressure cooker ISI only. Reminder I: Loyalty pilot may end; check site. Reminder J: Escalation email subject must include ESCALATION for disputes over ₹5,000.
+
+SKU quick index line: RW-KNIFE-01 ₹2499, RW-PAN-12 ₹1199, RW-PAN-10 ₹999, RW-LAMP-DESK ₹1649, RW-LAMP-FLR ₹3299, RW-CART-KIT ₹4499, RW-PRES-5L ₹2899, RW-TAWA-28 ₹1599.
+
+End of document.

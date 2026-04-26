@@ -9,6 +9,22 @@ on:
 jobs:
   lint-test-build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ci
     steps:
       - uses: actions/checkout@v4
 
@@ -20,7 +36,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint @chatbot/core
+      - name: Drizzle migrate (CI Postgres)
+        run: npm run db:migrate
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Lint @chatbot/core (standalone)
         run: npx eslint packages/core
 
       - name: Unit tests (app + core)

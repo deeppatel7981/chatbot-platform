@@ -1,11 +1,11 @@
 import { drizzle } from "drizzle-orm/node-postgres";
-import { poolConfigFromDatabaseUrl } from "../src/lib/db/pg-config";
+import { poolConfigFromDatabaseUrl } from "../apps/web/src/lib/db/pg-config";
 import { getDatabaseUrlOrThrow } from "./load-env";
 import { Pool } from "pg";
 import bcrypt from "bcryptjs";
 import { eq } from "drizzle-orm";
-import * as schema from "../src/lib/db/schema";
-import { organizations, users, organizationMembers, clients } from "../src/lib/db/schema";
+import * as schema from "../apps/web/src/lib/db/schema";
+import { organizations, users, organizationMembers, clients } from "../apps/web/src/lib/db/schema";
 
 async function main() {
   const url = getDatabaseUrlOrThrow();

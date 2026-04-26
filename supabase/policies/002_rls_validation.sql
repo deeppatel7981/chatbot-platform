@@ -1,0 +1,11 @@
+-- Optional checks after applying 001_rls_org_scoped.sql.
+-- In Supabase SQL editor, run as a member user (JWT) or use the Table Editor with RLS enforced.
+--
+-- 1) As service role / postgres (bypasses RLS): confirm policies exist
+--    SELECT polname FROM pg_policies WHERE tablename = 'contacts';
+--
+-- 2) As anon without JWT: expect zero rows on org tables
+--    SELECT count(*) FROM public.contacts;
+--
+-- 3) End-to-end: sign in via the app with Supabase Auth, then from the browser
+--    use the Supabase client to .from('contacts').select() — rows should match org membership only.

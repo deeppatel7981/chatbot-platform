@@ -5,15 +5,21 @@
  */
 import { config } from "dotenv";
 import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
+const webRoot = resolve(root, "apps/web");
 config({ path: resolve(root, ".env.local"), override: true });
 config({ path: resolve(root, ".env") });
 
-const child = spawn(process.execPath, ["node_modules/next/dist/bin/next", "dev"], {
-  cwd: root,
+const nextAtRoot = resolve(root, "node_modules/next/dist/bin/next");
+const nextAtWeb = resolve(webRoot, "node_modules/next/dist/bin/next");
+const nextBin = existsSync(nextAtWeb) ? nextAtWeb : nextAtRoot;
+
+const child = spawn(process.execPath, [nextBin, "dev"], {
+  cwd: webRoot,
   stdio: "inherit",
   env: process.env,
 });

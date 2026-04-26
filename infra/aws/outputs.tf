@@ -26,8 +26,7 @@ output "next_steps" {
   value = <<-EOT
     1) Fetch DATABASE_URL: aws secretsmanager get-secret-value --secret-id ${aws_secretsmanager_secret.database_url.name} --query SecretString --output text
     2) Set MOCK_DATA=false and DATABASE_URL in your app environment (Vercel / ECS).
-    3) Enable pgvector on the DB (one-time): connect with psql and run: CREATE EXTENSION IF NOT EXISTS vector;
-    4) Run from repo: npm run db:push && npm run db:seed
-    5) Set AWS_S3_BUCKET=${aws_s3_bucket.uploads.bucket} AWS_REGION=${var.aws_region} for document uploads.
+    3) Run from repo: npm run db:migrate && npm run db:seed (migrations include CREATE EXTENSION vector)
+    4) Set AWS_S3_BUCKET=${aws_s3_bucket.uploads.bucket} AWS_REGION=${var.aws_region} for document uploads.
   EOT
 }

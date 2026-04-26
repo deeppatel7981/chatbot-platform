@@ -1,5 +1,5 @@
 import { Pool } from "pg";
-import { poolConfigFromDatabaseUrl } from "../src/lib/db/pg-config";
+import { poolConfigFromDatabaseUrl } from "../apps/web/src/lib/db/pg-config";
 import { getDatabaseUrlOrThrow } from "./load-env";
 
 async function main() {

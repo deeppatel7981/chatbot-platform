@@ -20,15 +20,16 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run dev` | Dev server |
 | `npm run build` | Production build |
 | `npm run test` | Vitest (app + `@chatbot/core`) |
-| `npm run db:push` | Push Drizzle schema to `DATABASE_URL` |
-| `npm run db:migrate` | Run Drizzle migrations |
+| `npm run db:generate` | Generate SQL migrations from `apps/web/src/lib/db/schema.ts` → `drizzle/` |
+| `npm run db:migrate` | Apply pending migrations to `DATABASE_URL` (production path) |
+| `npm run db:push` | Dev-only: sync schema without migration files (avoid in prod) |
 
 ## Deploy fast (recommended)
 
 **Vercel** (hosting) + **Supabase** (Postgres): minimal ops, same stack you use locally.
 
-1. **Supabase**: create project → enable `vector` extension → copy DB URL.  
-2. **Schema**: `MOCK_DATA=false npm run db:push` against that URL once.  
+1. **Supabase**: create project → copy DB URL (migrations run `CREATE EXTENSION vector`).  
+2. **Schema**: `MOCK_DATA=false npm run db:migrate` once against that URL (from your machine or CI).  
 3. **Vercel**: import repo → set env vars → deploy.
 
 Full checklist: **[docs/deploy-fast.md](docs/deploy-fast.md)**
@@ -45,7 +46,7 @@ Full checklist: **[docs/deploy-fast.md](docs/deploy-fast.md)**
 | `MOCK_DATA` | `false` in production |
 | `OPENAI_API_KEY` | Chat / RAG |
 
-**Optional (Supabase client in the browser):** `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` — same values as in the Supabase dashboard **API** page. Use `src/lib/supabase` (`getSupabaseBrowserClient`) when you add Storage, Realtime, or Supabase Auth. Drizzle does not use these.
+**Optional (Supabase client in the browser):** `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` — same values as in the Supabase dashboard **API** page. Use `apps/web/src/lib/supabase` (`getSupabaseBrowserClient`) when you add Storage, Realtime, or Supabase Auth. Drizzle does not use these.
 
 Optional: `OPENAI_CHAT_MODEL`, WhatsApp and AWS keys for webhooks/S3—see `.env.example`.
 
@@ -58,7 +59,16 @@ In the Vercel project **Settings → Functions**, pick a region close to your us
 - [Fast deploy (Vercel + Supabase)](docs/deploy-fast.md)
 - [Front-end product requirements](docs/frontend-product-requirements.md)
 - [AWS SaaS implementation plan](docs/engineering-aws-saas-implementation.md) (optional later path)
+- [What we sell (product summary)](docs/what-we-sell.txt)
 
-## Monorepo
+## Monorepo layout
 
-- `packages/core` — shared domain logic (`@chatbot/core`), unit-tested without React.
+| Path | Role |
+|------|------|
+| `apps/web` | Next.js app (`@chatbot/web`): dashboard, portal, API routes, widget static assets |
+| `packages/core` | Shared domain logic (`@chatbot/core`), unit-tested without React |
+| `drizzle/` | Generated Postgres migrations (source of truth for schema alongside `apps/web/src/lib/db/schema.ts`) |
+| `supabase/` | Supabase SQL + Edge Functions (RAG helpers, etc.) used alongside or after Drizzle migrations |
+| `scripts/` | Dev helpers, seed, pgvector enable |
+| `samples/` | Example uploads / fixtures for local testing |
+| `infra/` | Terraform for optional AWS path |

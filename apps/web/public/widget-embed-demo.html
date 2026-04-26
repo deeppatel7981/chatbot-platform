@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Widget embed demo (local)</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 42rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        line-height: 1.5;
+        color: #18181b;
+      }
+      code {
+        font-size: 0.85rem;
+        background: #f4f4f5;
+        padding: 0.15rem 0.35rem;
+        border-radius: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Local merchant page</h1>
+    <p>
+      This file is served from the same origin as <code>widget.js</code>, so the chat launcher should appear at the
+      <strong>bottom-right</strong>. Use <code>?publicId=…</code> to try another client’s widget public ID.
+    </p>
+    <p id="meta" style="font-size: 0.875rem; color: #52525b"></p>
+    <script>
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var publicId =
+          params.get("publicId") || "09f5fe72-45d1-4967-a449-167502180c48";
+        document.getElementById("meta").textContent =
+          "publicId: " + publicId + " · script: " + new URL("./widget.js", location.href).href;
+
+        var s = document.createElement("script");
+        s.src = new URL("./widget.js", location.href).href;
+        s.setAttribute("data-public-id", publicId);
+        s.defer = true;
+        document.body.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

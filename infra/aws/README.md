@@ -70,7 +70,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 Then from the repo root:
 
 ```bash
-npm run db:push
+npm run db:migrate
 npm run db:seed
 ```
 

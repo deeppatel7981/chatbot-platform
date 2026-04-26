@@ -1,0 +1,25 @@
+# Backend LLD §12.4 — extend with `supabase start` + `supabase db reset` when CI has Docker + time budget.
+name: db-check
+
+on:
+  pull_request:
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/config.toml"
+      - "supabase/seed.sql"
+  workflow_dispatch:
+
+jobs:
+  migrations-present:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure at least one SQL migration exists
+        run: |
+          set -euo pipefail
+          count=$(find supabase/migrations -maxdepth 1 -name '*.sql' | wc -l | tr -d ' ')
+          if [ "$count" -lt 1 ]; then
+            echo "No migrations under supabase/migrations/"
+            exit 1
+          fi
+          echo "Found $count migration(s)."

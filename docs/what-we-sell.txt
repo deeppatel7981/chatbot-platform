@@ -1,0 +1,83 @@
+WHAT WE SELL
+============
+
+This document describes the product and value proposition of the chatbot platform. The customer-facing name in the app is IndusCart — replace with your go-to-market name if you white-label.
+
+
+ONE-LINE PITCH
+--------------
+
+AI-assisted customer care for Indian SMEs — shoppers get answers on WhatsApp and your website widget; your team runs everything from one workspace console, with human handoff when it matters.
+
+
+WHO IT IS FOR
+-------------
+
+- Small and mid-sized businesses in India (and similar markets) that sell, support, or book over WhatsApp and the web.
+
+- Agencies or multi-brand operators that manage several "clients" (brands / stores) in one workspace — each with its own knowledge, widget ID, and optional WhatsApp setup.
+
+- Merchants who need a sandboxed portal to see only their business: conversations, knowledge uploads, and thread status — without full admin access.
+
+
+WHAT CUSTOMERS BUY (CAPABILITIES)
+---------------------------------
+
+Channels
+
+- Website chat widget — one script tag (widget.js) with a public ID per client; visitors chat in the browser; messages hit your hosted API with CORS for merchant sites.
+
+- WhatsApp Business (Cloud API) — inbound webhooks and outbound replies when Meta credentials are configured per client.
+
+AI and knowledge
+
+- RAG (retrieval-augmented generation) — answers are grounded in documents you upload (e.g. PDFs, policies, FAQs) per client, using embeddings and vector search — not a generic model-only chatbot.
+
+- Reply languages — including English, Hindi, Hinglish, and "match customer's language" for the widget where configured.
+
+- Conversation memory for automation — prior thread messages (including team replies marked in-model as [Team]) are passed into the next AI turn so the assistant stays consistent after a human steps in.
+
+Team workflow
+
+- Shared inbox — conversations across channels, with status, handoff flags, and confidence signals.
+
+- Staff replies in-thread — team members can send messages from the conversation detail screen; website widget visitors see them via polling; WhatsApp customers get the same text on-thread when a phone number and Cloud API are on file.
+
+- Handoff and alerts — when the model is unsure or policy requires it, conversations can be flagged for humans; hooks exist for notifying the team (e.g. email via SES when configured).
+
+Operations and access
+
+- Workspace — org-level settings, team, automations (org-wide toggles), analytics summary, retention and AI settings where implemented.
+
+- Merchant portal — optional access per login via client_portal_access: scoped routes and APIs so a business owner sees only their allowed clients.
+
+- Security posture — portal vs full workspace separation; public widget APIs validated by publicId + visitor/session linkage; staff APIs require authentication.
+
+What we are NOT positioning as shipped revenue features
+
+Some UI areas are roadmap or placeholder (e.g. payments gateway, full billing portal). Treat those as future or custom implementation unless you have wired them for a specific launch.
+
+
+DEPLOYMENT SHAPE (HOW WE SELL IT TECHNICALLY)
+--------------------------------------------
+
+- SaaS-style hosting — e.g. Vercel + managed Postgres (Supabase) with pgvector, Next.js App Router, Drizzle ORM.
+
+- Bring your own keys — OpenAI for chat/embeddings; Meta for WhatsApp; optional AWS for email and related services per .env.example.
+
+
+INTERNAL USES FOR THIS DOC
+--------------------------
+
+- Sales and partnerships — align pitch with what the repo actually supports.
+
+- Onboarding — set expectations for services vs self-serve.
+
+- RAG / knowledge — you can trim this file and upload it as a knowledge document so the widget answers "What does IndusCart do?" consistently with your product truth.
+
+
+RELATED DOCS
+------------
+
+- docs/frontend-product-requirements.md
+- docs/deploy-fast.md

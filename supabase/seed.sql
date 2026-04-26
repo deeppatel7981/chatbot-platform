@@ -1,0 +1,19 @@
+-- Backend LLD v1 — optional local seed (runs after migrations when using `supabase db reset`).
+-- Replace UUIDs with real auth.users ids from your local Supabase Auth, or leave commented.
+
+-- Example (uncomment after first signup):
+-- insert into public.workspaces (id, name, slug, created_by)
+-- values (
+--   '00000000-0000-4000-8000-000000000001',
+--   'Demo Workspace',
+--   'demo-workspace',
+--   'YOUR_AUTH_USER_UUID'
+-- );
+--
+-- insert into public.workspace_members (workspace_id, user_id, role, status)
+-- values (
+--   '00000000-0000-4000-8000-000000000001',
+--   'YOUR_AUTH_USER_UUID',
+--   'owner',
+--   'active'
+-- );

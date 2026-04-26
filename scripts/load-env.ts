@@ -1,6 +1,7 @@
 import { config as loadEnv } from "dotenv";
 import { existsSync } from "fs";
 import { dirname, join } from "path";
+import { readDatabaseUrlFromEnv } from "../apps/web/src/lib/db/database-url";
 
 /** Walk up from cwd until we find the repo root (has package.json + drizzle.config.ts). */
 export function resolveProjectRoot(): string {
@@ -28,10 +29,10 @@ export function loadProjectEnv(): void {
 
 export function getDatabaseUrlOrThrow(): string {
   loadProjectEnv();
-  const url = process.env.DATABASE_URL?.trim();
+  const url = readDatabaseUrlFromEnv();
   if (!url) {
     throw new Error(
-      "DATABASE_URL is missing or empty in .env.local at the project root.\n" +
+      "DATABASE_URL (or POSTGRES_URL / SUPABASE_DATABASE_URL) is missing or empty in .env.local at the project root.\n" +
         "Paste the RDS URL from Secrets Manager, e.g.:\n" +
         "  aws secretsmanager get-secret-value --secret-id chatbot-platform/database-url-dev --query SecretString --output text --region ap-south-1\n" +
         "If the client fails SSL, append ?sslmode=require to the URL."
