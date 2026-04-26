@@ -48,7 +48,7 @@ export default function FAQPage() {
     <div className="relative min-h-screen overflow-hidden hero-gradient mesh-bg">
       <SiteHeader />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(250,250,250,0.9))] dark:bg-[linear-gradient(to_bottom,transparent,rgba(9,9,11,0.85))]" />
-      <main className="relative mx-auto max-w-3xl px-5 py-14 sm:px-8">
+      <main className="relative mx-auto max-w-[80ch] px-5 py-14 sm:px-8">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Frequently asked questions</h1>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">Straight answers for business owners — not engineering jargon.</p>
         <div className="mt-8 space-y-2">
@@ -65,7 +65,7 @@ export default function FAQPage() {
                   </span>
                 </span>
               </summary>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{item.a}</p>
+              <p className="mt-2 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">{item.a}</p>
             </details>
           ))}
         </div>

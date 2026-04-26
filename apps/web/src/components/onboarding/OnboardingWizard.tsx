@@ -166,7 +166,7 @@ export default function OnboardingWizard() {
       sessionStorage.removeItem(STORAGE_KEY);
       const cid = typeof json.clientId === "string" ? json.clientId : "";
       const qs = cid ? `?onboarded=1&clientId=${encodeURIComponent(cid)}` : "?onboarded=1";
-      router.push(`/dashboard${qs}`);
+      router.push(`/app/overview${qs}`);
     } catch {
       setError("Network error");
     }
@@ -202,8 +202,8 @@ export default function OnboardingWizard() {
           </span>
           {APP_DISPLAY_NAME}
         </Link>
-        <Link href="/dashboard" className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200">
-          Exit to dashboard
+        <Link href="/app/overview" className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200">
+          Exit to overview
         </Link>
       </div>
 
@@ -348,14 +348,14 @@ export default function OnboardingWizard() {
                 <div className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
                   <p className="font-medium text-zinc-900 dark:text-zinc-50">Website chat</p>
                   <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Embed one script on your site.</p>
-                  <Link href="/dashboard/integrations" className="mt-3 inline-block text-sm font-medium text-emerald-700 underline dark:text-emerald-400">
+                  <Link href="/app/integrations" className="mt-3 inline-block text-sm font-medium text-emerald-700 underline dark:text-emerald-400">
                     Open integration guide →
                   </Link>
                 </div>
                 <div className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
                   <p className="font-medium text-zinc-900 dark:text-zinc-50">WhatsApp Business</p>
                   <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Connect Meta Cloud API from settings when ready.</p>
-                  <Link href="/dashboard/settings" className="mt-3 inline-block text-sm font-medium text-emerald-700 underline dark:text-emerald-400">
+                  <Link href="/app/settings" className="mt-3 inline-block text-sm font-medium text-emerald-700 underline dark:text-emerald-400">
                     Workspace settings →
                   </Link>
                 </div>
@@ -369,16 +369,16 @@ export default function OnboardingWizard() {
               <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">The assistant answers from what you upload — PDFs, FAQs, and more.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  href="/dashboard/knowledge-base"
+                  href="/app/knowledge"
                   className="inline-flex rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white dark:bg-zinc-100 dark:text-zinc-900"
                 >
                   Open knowledge base
                 </Link>
                 <Link
-                  href="/dashboard/clients"
+                  href="/app/projects"
                   className="inline-flex rounded-lg border border-zinc-300 px-4 py-2.5 text-sm font-medium dark:border-zinc-600"
                 >
-                  Pick a client first
+                  Pick a project first
                 </Link>
               </div>
               <p className="mt-4 text-xs text-zinc-500 dark:text-zinc-500">You can continue this wizard and upload files later.</p>

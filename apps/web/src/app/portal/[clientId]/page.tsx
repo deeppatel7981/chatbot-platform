@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getAccessFromSession } from "@/lib/access-scope";
 import { getAppSession } from "@/lib/get-session";
 import PageIntro from "@/components/dashboard/PageIntro";
+import { appSurfaceCardPaddingSm } from "@/lib/app-typography";
 
 async function loadConversationCount(
   clientId: string,
@@ -53,7 +54,7 @@ export default async function PortalClientHome({ params }: { params: Promise<{ c
       <div className="grid gap-4 sm:grid-cols-2">
         <Link
           href={`/portal/${clientId}/chat-logs`}
-          className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-800"
+          className={`${appSurfaceCardPaddingSm} transition hover:border-emerald-300 dark:hover:border-emerald-800`}
         >
           <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Conversations</h2>
           <p className="mt-2 text-2xl font-bold tabular-nums text-zinc-900 dark:text-zinc-50">{total}</p>
@@ -68,7 +69,7 @@ export default async function PortalClientHome({ params }: { params: Promise<{ c
         </Link>
         <Link
           href={`/portal/${clientId}/documents`}
-          className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-800"
+          className={`${appSurfaceCardPaddingSm} transition hover:border-emerald-300 dark:hover:border-emerald-800`}
         >
           <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Knowledge</h2>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">

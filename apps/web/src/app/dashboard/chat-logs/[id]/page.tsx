@@ -109,7 +109,7 @@ export default function ConversationDetailPage() {
   return (
     <div>
       <Link
-        href="/dashboard/chat-logs"
+        href="/app/conversations"
         className="mb-6 inline-flex text-sm font-medium text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
       >
         ← Back to conversations
@@ -154,25 +154,25 @@ export default function ConversationDetailPage() {
             actions={
               <>
                 <Link
-                  href={`/dashboard/clients/${conversation.clientId}`}
+                  href={`/app/projects/${conversation.clientId}`}
                   className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
                 >
-                  View business
+                  Project overview
                 </Link>
                 <Link
-                  href={`/dashboard/clients/${conversation.clientId}/documents`}
+                  href={`/app/projects/${conversation.clientId}/documents`}
                   className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
                 >
                   Knowledge uploads
                 </Link>
                 <Link
-                  href="/dashboard/integrations"
+                  href="/app/integrations"
                   className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
                 >
                   Integrations
                 </Link>
                 <Link
-                  href="/dashboard/leads"
+                  href="/app/leads"
                   className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
                 >
                   Leads

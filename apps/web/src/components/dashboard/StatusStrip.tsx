@@ -16,7 +16,7 @@ export type StatusStripOnboarding = {
 } | null;
 
 const cardBase =
-  "flex min-h-[5.5rem] flex-1 flex-col justify-between rounded-2xl border p-4 transition hover:-translate-y-px hover:border-zinc-300 dark:hover:border-zinc-600";
+  "flex min-h-[5.5rem] flex-1 flex-col justify-between rounded-2xl border border-zinc-200/90 bg-white p-4 shadow-dashboard-card dark:border-zinc-800 dark:bg-zinc-950";
 
 export default function StatusStrip({
   summary,
@@ -39,7 +39,7 @@ export default function StatusStrip({
         ? "bg-emerald-500/15 text-emerald-800 dark:text-emerald-200"
         : "bg-amber-500/15 text-amber-900 dark:text-amber-100",
       cta: widgetLive ? "Test" : "Install",
-      href: "/dashboard/bot-preview",
+      href: "/app/widget",
     },
     {
       key: "whatsapp",
@@ -49,7 +49,7 @@ export default function StatusStrip({
         ? "bg-emerald-500/15 text-emerald-800 dark:text-emerald-200"
         : "bg-zinc-500/15 text-zinc-800 dark:text-zinc-200",
       cta: waOk ? "Manage" : "Connect",
-      href: "/dashboard/integrations",
+      href: "/app/integrations",
     },
     {
       key: "knowledge",
@@ -60,7 +60,7 @@ export default function StatusStrip({
           ? "bg-violet-500/12 text-violet-900 dark:text-violet-100"
           : "bg-amber-500/15 text-amber-900 dark:text-amber-100",
       cta: chunks > 0 ? "Add more" : "Upload",
-      href: "/dashboard/knowledge-base",
+      href: "/app/knowledge",
     },
     {
       key: "inbox",
@@ -71,7 +71,7 @@ export default function StatusStrip({
           ? "bg-rose-500/12 text-rose-900 dark:text-rose-100"
           : "bg-emerald-500/12 text-emerald-800 dark:text-emerald-200",
       cta: handoffs > 0 ? "Review" : "Open",
-      href: "/dashboard/chat-logs",
+      href: "/app/conversations",
     },
   ];
 
@@ -80,10 +80,7 @@ export default function StatusStrip({
       <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Setup & health</p>
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         {items.map((item) => (
-          <div
-            key={item.key}
-            className={`${cardBase} min-w-[140px] border-zinc-200/90 bg-white shadow-dashboard-card dark:border-zinc-800 dark:bg-zinc-950`}
-          >
+          <div key={item.key} className={`${cardBase} min-w-[140px]`}>
             <div>
               <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400">{item.title}</p>
               <p className={`mt-2 inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${item.statusClass}`}>

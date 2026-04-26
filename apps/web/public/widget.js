@@ -82,8 +82,11 @@
       .catch(function () {});
   }
 
-  /* Emerald palette — aligns with dashboard marketing accent */
+  /* Zinc neutrals + blue primary (app shell) + emerald accent (send CTA) — matches globals.css */
   var C = {
+    primary700: "#1d4ed8",
+    primary800: "#1e40af",
+    primaryRing: "rgba(29,78,216,0.2)",
     emerald600: "#059669",
     emerald700: "#047857",
     emerald50: "#ecfdf5",
@@ -112,9 +115,9 @@
   var header = document.createElement("div");
   header.style.cssText =
     "display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 16px;background:linear-gradient(135deg," +
-    C.emerald600 +
+    C.primary700 +
     " 0%," +
-    C.emerald700 +
+    C.primary800 +
     " 100%);color:" +
     C.white +
     ";";
@@ -181,8 +184,8 @@
     C.white +
     ";";
   input.onfocus = function () {
-    input.style.borderColor = C.emerald600;
-    input.style.boxShadow = "0 0 0 3px rgba(5,150,105,.15)";
+    input.style.borderColor = C.primary700;
+    input.style.boxShadow = "0 0 0 3px " + C.primaryRing;
   };
   input.onblur = function () {
     input.style.borderColor = C.zinc200;
@@ -263,7 +266,7 @@
     bubble.style.cssText =
       "max-width:85%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.45;word-wrap:break-word;white-space:pre-wrap;" +
       (isVisitor
-        ? "background:" + C.emerald600 + ";color:" + C.white + ";border-bottom-right-radius:4px;"
+        ? "background:" + C.primary700 + ";color:" + C.white + ";border-bottom-right-radius:4px;"
         : "background:" + C.white + ";color:" + C.zinc700 + ";border:1px solid " + C.zinc200 + ";border-bottom-left-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.04);");
     row.appendChild(bubble);
     messages.appendChild(row);
@@ -317,17 +320,17 @@
     "position:fixed;bottom:20px;right:20px;display:flex;align-items:center;gap:0;padding:14px 20px;border:none;border-radius:9999px;cursor:pointer;color:" +
     C.white +
     ";background:linear-gradient(135deg," +
-    C.emerald600 +
+    C.primary700 +
     " 0%," +
-    C.emerald700 +
-    " 100%);box-shadow:0 10px 40px -10px rgba(5,150,105,.55),0 4px 14px rgba(0,0,0,.12);z-index:2147483647;transition:transform .15s,box-shadow .15s;";
+    C.primary800 +
+    " 100%);box-shadow:0 10px 40px -10px rgba(29,78,216,.45),0 4px 14px rgba(0,0,0,.12);z-index:2147483647;transition:transform .15s,box-shadow .15s;";
   toggle.onmouseenter = function () {
     toggle.style.transform = "translateY(-2px)";
-    toggle.style.boxShadow = "0 14px 44px -10px rgba(5,150,105,.6),0 6px 20px rgba(0,0,0,.14)";
+    toggle.style.boxShadow = "0 14px 44px -10px rgba(29,78,216,.5),0 6px 20px rgba(0,0,0,.14)";
   };
   toggle.onmouseleave = function () {
     toggle.style.transform = "translateY(0)";
-    toggle.style.boxShadow = "0 10px 40px -10px rgba(5,150,105,.55),0 4px 14px rgba(0,0,0,.12)";
+    toggle.style.boxShadow = "0 10px 40px -10px rgba(29,78,216,.45),0 4px 14px rgba(0,0,0,.12)";
   };
 
   function open() {

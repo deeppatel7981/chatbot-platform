@@ -64,7 +64,7 @@ export default function IndustryTabsSection() {
               className={[
                 "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                 on
-                  ? "bg-zinc-900 text-white shadow-sm dark:bg-zinc-100 dark:text-zinc-900"
+                  ? "bg-primary text-primary-foreground shadow-sm"
                   : "border border-zinc-200 bg-white/90 text-zinc-700 hover:border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900/80 dark:text-zinc-200",
               ].join(" ")}
             >
@@ -79,7 +79,7 @@ export default function IndustryTabsSection() {
         <ul className="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
           {tab.bullets.map((b) => (
             <li key={b} className="flex gap-2">
-              <span className="text-emerald-600 dark:text-emerald-400" aria-hidden>
+              <span className="text-primary" aria-hidden>
                 ✓
               </span>
               <span>{b}</span>
@@ -95,7 +95,7 @@ export default function IndustryTabsSection() {
         <div className="mt-6">
           <Link
             href="/signup"
-            className="inline-flex rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
+            className="inline-flex rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)]"
           >
             Explore {tab.label} template
           </Link>

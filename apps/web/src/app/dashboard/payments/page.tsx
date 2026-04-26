@@ -7,6 +7,15 @@ import PageIntro from "@/components/dashboard/PageIntro";
 export default function PaymentsPage() {
   return (
     <div className="space-y-8">
+      <div className="rounded-xl border border-amber-200/90 bg-amber-50/90 px-4 py-3 text-sm text-amber-950 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-100">
+        <span className="font-semibold">Coming soon</span>
+        <span className="text-amber-900/90 dark:text-amber-200/90">
+          {" "}
+          — no gateway is connected in this build. The sections below describe the roadmap; you are not missing a setup
+          step.
+        </span>
+      </div>
+
       <PageIntro
         eyebrow="Billing & commerce"
         title="Payments"
@@ -34,8 +43,8 @@ export default function PaymentsPage() {
           "Keep taking payments on your storefront; train the bot on policies and FAQs here.",
           "When integrations ship, you’ll connect billing and merchant payment settings per client.",
         ]}
-        primaryAction={{ label: "Integrations", href: "/dashboard/integrations" }}
-        secondaryAction={{ label: "Clients", href: "/dashboard/clients" }}
+        primaryAction={{ label: "Integrations", href: "/app/integrations" }}
+        secondaryAction={{ label: "Projects", href: "/app/projects" }}
       />
 
       <section className="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:p-8">
@@ -53,7 +62,7 @@ export default function PaymentsPage() {
       <section className="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:p-8">
         <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">Customer &amp; WhatsApp payments</h2>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-          For each <strong className="font-medium text-zinc-800 dark:text-zinc-200">client</strong>, you may eventually
+          For each <strong className="font-medium text-zinc-800 dark:text-zinc-200">project</strong>, you may eventually
           attach payment links, order flows, or WhatsApp Commerce handoffs so the bot can send a secure pay link or
           confirm COD—always with explicit human or policy rules for money movement.
         </p>
@@ -63,7 +72,7 @@ export default function PaymentsPage() {
           <li>Audit trail: tie a payment intent to a thread ID for support.</li>
         </ul>
         <div className="mt-6 rounded-xl border border-dashed border-zinc-300 bg-zinc-50/80 px-4 py-8 text-center text-sm text-zinc-500 dark:border-zinc-600 dark:bg-zinc-950/50 dark:text-zinc-400">
-          Merchant payment settings — configure per client when integrations ship.
+          Merchant payment settings — configure per project when integrations ship.
         </div>
       </section>
 

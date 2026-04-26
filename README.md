@@ -30,7 +30,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 1. **Supabase**: create project → copy DB URL (migrations run `CREATE EXTENSION vector`).  
 2. **Schema**: `MOCK_DATA=false npm run db:migrate` once against that URL (from your machine or CI).  
-3. **Vercel**: import repo → set **Root Directory** to `apps/web` (so `.next` is found) → set env vars → deploy.
+3. **Vercel**: import repo → either set **Root Directory** to `apps/web` and enable *Include source files outside of the Root Directory*, **or** keep the repo root and rely on root `vercel.json` (`outputDirectory`: `apps/web/.next`) → set env vars → deploy.
 
 Full checklist: **[docs/deploy-fast.md](docs/deploy-fast.md)**
 

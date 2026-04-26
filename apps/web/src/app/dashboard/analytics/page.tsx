@@ -52,7 +52,7 @@ export default function AnalyticsPage() {
             <p>
               High-level counts from your database: how busy channels are, how many contacts you&apos;ve collected, and
               how often conversations need a human. Use it alongside{" "}
-              <Link href="/dashboard/chat-logs" className="font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 dark:text-zinc-100">
+              <Link href="/app/conversations" className="font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 dark:text-zinc-100">
                 Conversations
               </Link>{" "}
               for detail.
@@ -76,7 +76,7 @@ export default function AnalyticsPage() {
           {cards.map(([label, hint, value]) => (
             <div
               key={label}
-              className="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+              className="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
             >
               <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">{label}</p>
               <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{hint}</p>

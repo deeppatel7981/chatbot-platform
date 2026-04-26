@@ -50,7 +50,7 @@ export default function HowItWorksStrip() {
           </Link>
           <Link
             href="/#live-widget-demo"
-            className="inline-flex rounded-lg bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
+            className="inline-flex rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)]"
           >
             Try live demo
           </Link>

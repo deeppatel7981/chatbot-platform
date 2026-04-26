@@ -42,7 +42,7 @@ export default function PricingPage() {
       <SiteHeader />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(250,250,250,0.9))] dark:bg-[linear-gradient(to_bottom,transparent,rgba(9,9,11,0.85))]" />
       <main className="relative mx-auto max-w-6xl px-5 py-14 sm:px-8 xl:max-w-7xl xl:px-12">
-        <p className="text-sm font-medium uppercase tracking-wide text-emerald-800 dark:text-emerald-400/90">Pricing</p>
+        <p className="text-sm font-medium uppercase tracking-wide text-primary">Pricing</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
           Plans that stay in plain language
         </h1>
@@ -57,7 +57,7 @@ export default function PricingPage() {
               className={[
                 "flex flex-col rounded-2xl border p-6 shadow-sm",
                 p.variant === "featured"
-                  ? "border-emerald-300 ring-2 ring-emerald-500/20 bg-emerald-50/40 dark:border-emerald-800 dark:bg-emerald-950/30"
+                  ? "border-primary/35 ring-2 ring-primary/15 bg-primary/10 dark:border-primary/40 dark:bg-primary/15"
                   : "border-zinc-200 bg-white/90 dark:border-zinc-800 dark:bg-zinc-950/80",
               ].join(" ")}
             >
@@ -70,7 +70,7 @@ export default function PricingPage() {
               <ul className="mt-4 flex-1 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                 {p.bullets.map((b) => (
                   <li key={b} className="flex gap-2">
-                    <span className="text-emerald-600" aria-hidden>
+                    <span className="text-primary" aria-hidden>
                       ✓
                     </span>
                     {b}
@@ -82,7 +82,7 @@ export default function PricingPage() {
                 className={[
                   "mt-6 inline-flex justify-center rounded-lg px-4 py-2.5 text-center text-sm font-semibold",
                   p.variant === "featured"
-                    ? "bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
+                    ? "bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]"
                     : "border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800",
                 ].join(" ")}
               >
@@ -92,8 +92,8 @@ export default function PricingPage() {
           ))}
         </ul>
         <p className="mt-10 text-center text-sm text-zinc-500 dark:text-zinc-400">
-          Questions? Read the <Link href="/faq" className="font-medium text-emerald-700 underline dark:text-emerald-400">FAQ</Link>{" "}
-          or <Link href="/contact" className="font-medium text-emerald-700 underline dark:text-emerald-400">contact us</Link>.
+          Questions? Read the <Link href="/faq" className="font-medium text-primary underline">FAQ</Link>{" "}
+          or <Link href="/contact" className="font-medium text-primary underline">contact us</Link>.
         </p>
       </main>
       <MarketingFooter />

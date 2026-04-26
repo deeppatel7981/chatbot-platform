@@ -85,7 +85,7 @@ export default function SiteHeader() {
           </Link>
           <Link
             href="/signup"
-            className="inline-flex rounded-lg bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
+            className="inline-flex rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)]"
           >
             Start free
           </Link>
@@ -154,7 +154,7 @@ export default function SiteHeader() {
               <Link
                 href="/signup"
                 onClick={() => setOpen(false)}
-                className="mt-1 rounded-xl bg-emerald-600 py-4 text-center text-base font-semibold text-white dark:bg-emerald-500"
+                className="mt-1 rounded-xl bg-primary py-4 text-center text-base font-semibold text-primary-foreground"
               >
                 Start free
               </Link>

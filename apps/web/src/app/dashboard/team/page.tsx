@@ -88,7 +88,7 @@ export default function TeamPage() {
             </thead>
             <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
               {rows.map((r) => (
-                <tr key={r.membershipId} className="hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40">
+                <tr key={r.membershipId}>
                   <td className="px-4 py-3.5">
                     <div className="flex items-center gap-3">
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-violet-500/15 text-xs font-bold text-violet-900 dark:text-violet-100">

@@ -21,7 +21,12 @@ Goal: ship the app with **minimal ops**—hosted Postgres + Next.js on Vercel. Y
 ## 2. Vercel
 
 1. Import the GitHub repo → Framework Preset: **Next.js**.
-2. **Settings → General → Root Directory** — set to **`apps/web`**. This monorepo builds Next.js there; leaving the root at the repo makes Vercel look for `.next` in the wrong place. `apps/web/vercel.json` runs `npm ci` and the workspace build from the repo root.
+2. **Settings → General → Root Directory** — pick **one** of these (both work if committed `vercel.json` files match):
+
+   - **Recommended:** **`apps/web`**. In the same **Root Directory** section, turn **on** *Include source files outside of the Root Directory in the Build Step* so `packages/core` is visible. `apps/web/vercel.json` installs/builds the workspace via `npm --prefix ../..` (no `cd ..`, which Vercel can block).
+
+   - **Alternative:** leave Root Directory at the **repository root** (`.`). The root **`vercel.json`** sets `outputDirectory` to **`apps/web/.next`** so Vercel reads the Next build output after `npm run build`. Set **Framework Preset** to **Next.js** in the dashboard if it is not detected automatically.
+
 3. **Environment variables** (Production / Preview):
 
    | Variable | Notes |

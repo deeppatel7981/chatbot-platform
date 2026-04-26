@@ -131,7 +131,7 @@ export default function PortalChatLogsPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search channel or ID…"
-                className="w-full rounded-xl border border-zinc-200 bg-zinc-50/80 px-3 py-2 pl-9 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
+                className="w-full rounded-xl border border-zinc-200 bg-zinc-50/80 px-3 py-2 pl-9 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100"
               />
               <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" aria-hidden>
                 ⌕
@@ -159,7 +159,7 @@ export default function PortalChatLogsPage() {
                 className={[
                   "rounded-full px-3 py-1.5 text-xs font-semibold transition",
                   tab === t.id
-                    ? "bg-emerald-800 text-white dark:bg-emerald-600"
+                    ? "bg-primary text-primary-foreground"
                     : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700",
                 ].join(" ")}
               >
@@ -207,7 +207,7 @@ export default function PortalChatLogsPage() {
               </thead>
               <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
                 {filtered.map((r) => (
-                  <tr key={r.id} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/50">
+                  <tr key={r.id}>
                     <td className="px-4 py-3.5 align-middle">{channelPill(r.channel)}</td>
                     <td className="px-4 py-3.5 align-middle">{statusPill(r.status)}</td>
                     <td className="px-4 py-3.5 align-middle">
@@ -222,13 +222,13 @@ export default function PortalChatLogsPage() {
                       )}
                     </td>
                     <td className="px-4 py-3.5 align-middle">{confidencePill(r.lastConfidence)}</td>
-                    <td className="px-4 py-3.5 align-middle text-xs tabular-nums text-zinc-500">
+                    <td className="px-4 py-3.5 align-middle text-xs tabular-nums text-zinc-600 dark:text-zinc-400">
                       {new Date(r.updatedAt).toLocaleString()}
                     </td>
                     <td className="px-4 py-3.5 align-middle text-right">
                       <Link
                         href={`/portal/${clientId}/chat-logs/${r.id}`}
-                        className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-xl bg-emerald-800 px-3 py-2 text-xs font-semibold text-white transition hover:bg-emerald-900 dark:bg-emerald-600 dark:hover:bg-emerald-500"
+                        className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-xl bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-[var(--primary-hover)]"
                       >
                         Open
                       </Link>

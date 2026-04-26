@@ -161,8 +161,8 @@ export default function SettingsPage() {
           "Integrations — embed the widget and (optionally) WhatsApp.",
           "Clients — set default reply language and channel credentials.",
         ]}
-        primaryAction={{ label: "Knowledge base", href: "/dashboard/knowledge-base" }}
-        secondaryAction={{ label: "Integrations", href: "/dashboard/integrations" }}
+        primaryAction={{ label: "Knowledge base", href: "/app/knowledge" }}
+        secondaryAction={{ label: "Integrations", href: "/app/integrations" }}
       />
 
       <div className="max-w-lg rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">

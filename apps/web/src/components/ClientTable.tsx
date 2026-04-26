@@ -48,7 +48,7 @@ export default function ClientTable({ refreshKey }: Props) {
         const res = await fetch("/api/clients", { credentials: "include" });
         const json = await res.json();
         if (!res.ok) {
-          if (mounted) setError(json?.error || "Could not load clients");
+          if (mounted) setError(json?.error || "Could not load projects");
           setClients([]);
         } else if (mounted) {
           const rows = (json.data || []).map((c: Client & { created_at?: string }) => ({
@@ -76,20 +76,20 @@ export default function ClientTable({ refreshKey }: Props) {
     if (error) {
       return (
         <div className="rounded-2xl border border-red-200 bg-red-50/90 px-6 py-8 text-center text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">
-          <span className="font-medium">Could not load clients.</span> {error}
+          <span className="font-medium">Could not load projects.</span> {error}
         </div>
       );
     }
     return (
       <DashboardEmptyState
-        title="No clients yet"
-        description="Use New client on Overview to add a business. This table fills in once the first client exists."
+        title="No projects yet"
+        description="Use New project on Overview to add a business. This table fills in once the first project exists."
         steps={[
-          "Overview → New client.",
+          "Overview → New project.",
           "Return here for widget public ID and links.",
         ]}
-        primaryAction={{ label: "Go to Overview", href: "/dashboard" }}
-        secondaryAction={{ label: "Knowledge base", href: "/dashboard/knowledge-base" }}
+        primaryAction={{ label: "Go to Overview", href: "/app/overview" }}
+        secondaryAction={{ label: "Knowledge base", href: "/app/knowledge" }}
       />
     );
   }
@@ -111,7 +111,7 @@ export default function ClientTable({ refreshKey }: Props) {
           {clients.map((client) => (
             <tr
               key={client.id}
-              className="transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800/40"
+              className="transition-colors"
             >
               <td className="px-4 py-3 font-medium text-zinc-900 dark:text-zinc-100">{client.name}</td>
               <td className="px-4 py-3 font-mono text-xs text-zinc-600 break-all dark:text-zinc-400">
@@ -122,7 +122,7 @@ export default function ClientTable({ refreshKey }: Props) {
               </td>
               <td className="px-4 py-3">
                 <Link
-                  href={`/dashboard/clients/${client.id}`}
+                  href={`/app/projects/${client.id}`}
                   className="text-sm font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-zinc-100"
                 >
                   View

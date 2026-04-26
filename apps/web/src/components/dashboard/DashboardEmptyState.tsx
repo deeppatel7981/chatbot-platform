@@ -36,7 +36,7 @@ export default function DashboardEmptyState({
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
         <Link
           href={primaryAction.href}
-          className="inline-flex rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+          className="inline-flex rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)]"
         >
           {primaryAction.label}
         </Link>

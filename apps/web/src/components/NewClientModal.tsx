@@ -100,7 +100,7 @@ export default function NewClientModal({ isOpen, onClose, onSuccess }: ModalProp
         className="modal-enter relative z-10 w-full max-w-md rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-2xl dark:border-zinc-700 dark:bg-zinc-900"
       >
         <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">Add business</h2>
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Create a client and widget namespace.</p>
+        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Creates a project with its own widget and knowledge space.</p>
 
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)} noValidate>
           <div>

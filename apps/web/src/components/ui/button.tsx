@@ -3,11 +3,10 @@ import React from "react";
 type Variant = "primary" | "secondary" | "accent";
 
 const variantClass: Record<Variant, string> = {
-  /** Default app actions — high contrast, neutral (Notion/Linear-style). */
+  /** Default app actions — primary token (blue); AA contrast with white label text. */
   primary: [
-    "bg-zinc-900 text-white shadow-sm shadow-zinc-900/10",
-    "hover:bg-zinc-800",
-    "dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white",
+    "bg-primary text-primary-foreground shadow-sm shadow-primary/15",
+    "hover:bg-[var(--primary-hover)]",
   ].join(" "),
   /** Secondary / cancel — outline, no fill competition with primary. */
   secondary: [
@@ -15,7 +14,7 @@ const variantClass: Record<Variant, string> = {
     "hover:bg-zinc-50 hover:border-zinc-400",
     "dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800",
   ].join(" "),
-  /** Brand accent — use sparingly (e.g. one CTA per view). */
+  /** Brand accent (emerald) — spice; maps to --accent in globals. */
   accent: [
     "bg-emerald-600 text-white shadow-sm shadow-emerald-900/10",
     "hover:bg-emerald-700",
@@ -32,7 +31,7 @@ export const Button = ({ className = "", variant = "primary", disabled, ...props
     disabled={disabled}
     className={[
       "inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition duration-200",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-zinc-500 dark:focus-visible:ring-offset-zinc-900",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900",
       "active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50",
       variantClass[variant],
       className,

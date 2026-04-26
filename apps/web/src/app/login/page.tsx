@@ -35,7 +35,7 @@ const LoginPageContent = () => {
         return;
       }
       const token = localStorage.getItem("token");
-      if (token) router.push("/dashboard");
+      if (token) router.push("/app/overview");
     };
     check();
   }, [router]);
@@ -86,7 +86,7 @@ const LoginPageContent = () => {
 
     if (res?.ok) {
       if (typeof window !== "undefined") localStorage.setItem("token", "next-auth-token");
-      router.push("/dashboard");
+      router.push("/app/overview");
     } else if (res?.error === "CredentialsSignin") {
       if (mockMode) {
         setError('Mock mode: use any email and password exactly "admin".');

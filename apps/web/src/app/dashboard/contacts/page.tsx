@@ -123,8 +123,8 @@ export default function ContactsPage() {
                 "Go live with the widget or WhatsApp — new threads create contact records over time.",
                 "Use Leads when an inquiry should move through a pipeline with status.",
               ]}
-              primaryAction={{ label: "Open conversations", href: "/dashboard/chat-logs" }}
-              secondaryAction={{ label: "Leads pipeline", href: "/dashboard/leads" }}
+              primaryAction={{ label: "Open conversations", href: "/app/conversations" }}
+              secondaryAction={{ label: "Leads pipeline", href: "/app/leads" }}
             />
           </div>
         ) : (
@@ -141,12 +141,12 @@ export default function ContactsPage() {
               </thead>
               <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
                 {rows.map((r) => (
-                  <tr key={r.id} className="hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40">
+                  <tr key={r.id}>
                     <td className="px-4 py-3 font-medium text-zinc-900 dark:text-zinc-100">{r.name ?? "—"}</td>
                     <td className="px-4 py-3 text-zinc-600 dark:text-zinc-400">{r.phone ?? "—"}</td>
                     <td className="px-4 py-3 text-zinc-600 dark:text-zinc-400">{r.email ?? "—"}</td>
                     <td className="px-4 py-3 text-zinc-600 dark:text-zinc-400">{r.source ?? "—"}</td>
-                    <td className="px-4 py-3 text-xs tabular-nums text-zinc-500">{new Date(r.createdAt).toLocaleDateString()}</td>
+                    <td className="px-4 py-3 text-xs tabular-nums text-zinc-600 dark:text-zinc-400">{new Date(r.createdAt).toLocaleDateString()}</td>
                   </tr>
                 ))}
               </tbody>
@@ -157,13 +157,13 @@ export default function ContactsPage() {
 
       <div className="flex flex-wrap gap-3">
         <Link
-          href="/dashboard/chat-logs"
+          href="/app/conversations"
           className="inline-flex rounded-xl border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
         >
           Conversations
         </Link>
         <Link
-          href="/dashboard/leads"
+          href="/app/leads"
           className="inline-flex rounded-xl border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
         >
           Leads

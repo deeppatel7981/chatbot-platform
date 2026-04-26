@@ -1,20 +1,43 @@
 @import "tailwindcss";
 
-/* Neutral-first surfaces; brand green only where semantic (accent token). */
+/* Respect browser/user text size; express most type in rem via Tailwind (see Medium: UI fundamentals for FE devs). */
+html {
+  font-size: 100%;
+}
+
+/*
+  Color system: one neutral family (zinc), one primary (interactive / trust), one accent (spice).
+  Primary ≈ blue-700 on light, blue-500 on dark — WCAG AA with white label text.
+  Accent ≈ emerald — use sparingly (secondary CTAs, success, selection wash).
+*/
 :root {
   --background: #fafafa;
   --foreground: #18181b;
   --app-surface: #f4f4f5;
   --card: #ffffff;
+  --primary: #1d4ed8;
+  --primary-foreground: #ffffff;
+  --primary-hover: #1e40af;
+  --primary-muted: rgba(29, 78, 216, 0.09);
   --accent: #059669;
   --accent-muted: rgba(5, 150, 105, 0.1);
   --ring: rgba(24, 24, 27, 0.12);
   --dashboard-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  /* Page title / body scale — used by PageIntro + portal headers (single rhythm) */
+  --app-page-title-size: 1.875rem;
+  --app-page-title-leading: 2.25rem;
+  --app-page-title-tracking: -0.025em;
+  --app-page-eyebrow-size: 0.75rem;
+  --app-page-body-size: 0.875rem;
+  --app-page-body-leading: 1.625;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -25,12 +48,22 @@
     --foreground: #fafafa;
     --app-surface: #11131a;
     --card: #151924;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --primary-hover: #2563eb;
+    --primary-muted: rgba(59, 130, 246, 0.14);
     --accent: #34d399;
     --accent-muted: rgba(52, 211, 153, 0.12);
     --ring: rgba(255, 255, 255, 0.1);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --text-secondary: rgba(255, 255, 255, 0.7);
     --dashboard-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    --app-page-title-size: 1.875rem;
+    --app-page-title-leading: 2.25rem;
+    --app-page-title-tracking: -0.025em;
+    --app-page-eyebrow-size: 0.75rem;
+    --app-page-body-size: 0.875rem;
+    --app-page-body-leading: 1.625;
   }
 }
 
@@ -40,6 +73,15 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Visible focus for keyboard users (Fitts’s / cognitive ease — https://lawsofux.com) */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .shadow-dashboard-card {
@@ -107,14 +149,14 @@ body {
 .mesh-bg {
   background-image:
     radial-gradient(at 85% 10%, rgba(24, 24, 27, 0.04) 0px, transparent 42%),
-    radial-gradient(at 0% 95%, rgba(5, 150, 105, 0.025) 0px, transparent 48%);
+    radial-gradient(at 0% 95%, rgba(29, 78, 216, 0.06) 0px, transparent 48%);
 }
 
 @media (prefers-color-scheme: dark) {
   .mesh-bg {
     background-image:
       radial-gradient(at 85% 10%, rgba(255, 255, 255, 0.025) 0px, transparent 42%),
-      radial-gradient(at 0% 95%, rgba(52, 211, 153, 0.03) 0px, transparent 48%);
+      radial-gradient(at 0% 95%, rgba(59, 130, 246, 0.07) 0px, transparent 48%);
   }
 }
 

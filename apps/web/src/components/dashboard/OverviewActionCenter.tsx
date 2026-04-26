@@ -15,9 +15,9 @@ type Summary = {
 
 const nextSteps = (o: NonNullable<Onboarding>) => {
   const out: { label: string; href: string; done: boolean }[] = [
-    { label: "Add a business under Clients", href: "/dashboard/clients", done: o.hasClient },
-    { label: "Upload FAQs or catalog PDFs", href: "/dashboard/knowledge-base", done: o.hasDocuments },
-    { label: "Send a test message from the widget", href: "/dashboard/bot-preview", done: o.conversationCount > 0 },
+    { label: "Add a business (Projects)", href: "/app/projects", done: o.hasClient },
+    { label: "Upload FAQs or catalog PDFs", href: "/app/knowledge", done: o.hasDocuments },
+    { label: "Send a test message from the widget", href: "/app/widget", done: o.conversationCount > 0 },
   ];
   return out;
 };
@@ -79,7 +79,7 @@ export default function OverviewActionCenter({
             <li className="flex items-center justify-between gap-3 rounded-xl border border-rose-200/80 bg-rose-50/80 px-3 py-2.5 dark:border-rose-900/50 dark:bg-rose-950/30">
               <span className="font-medium text-rose-950 dark:text-rose-100">{handoffs} conversation{handoffs === 1 ? "" : "s"} flagged for staff</span>
               <Link
-                href="/dashboard/chat-logs"
+                href="/app/conversations"
                 className="shrink-0 rounded-lg bg-rose-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-rose-600"
               >
                 Open inbox
@@ -92,7 +92,7 @@ export default function OverviewActionCenter({
           )}
           <li className="flex items-center justify-between gap-2 text-zinc-600 dark:text-zinc-400">
             <span>{recent} conversations in the last 30 days</span>
-            <Link href="/dashboard/analytics" className="text-xs font-semibold text-violet-600 hover:underline dark:text-violet-400">
+            <Link href="/app/analytics" className="text-xs font-semibold text-violet-600 hover:underline dark:text-violet-400">
               Analytics
             </Link>
           </li>

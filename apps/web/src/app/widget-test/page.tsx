@@ -55,10 +55,10 @@ function WidgetTestContent() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">Demo merchant site</p>
             <h1 className="text-lg font-semibold">Acme Outdoor · Pune</h1>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Same layout as a client page — the widget is the real embed.</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Same layout as a merchant page — the widget is the real embed.</p>
           </div>
           <Link
-            href="/dashboard/bot-preview"
+            href="/app/widget"
             className="text-sm font-medium text-emerald-700 underline underline-offset-2 dark:text-emerald-400"
           >
             Dashboard embed →
@@ -80,9 +80,9 @@ function WidgetTestContent() {
         <section className="mt-8 rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
           <h2 className="text-base font-semibold">Widget public ID</h2>
           <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-            Use a client&apos;s <strong>widget public ID</strong> from{" "}
-            <Link href="/dashboard/clients" className="font-medium text-emerald-700 underline dark:text-emerald-400">
-              Clients
+            Use a project&apos;s <strong>widget public ID</strong> from{" "}
+            <Link href="/app/projects" className="font-medium text-emerald-700 underline dark:text-emerald-400">
+              Projects
             </Link>
             . Or open with query:{" "}
             <code className="rounded bg-zinc-100 px-1 text-xs dark:bg-zinc-800">/widget-test?publicId=YOUR_UUID</code>
@@ -91,7 +91,7 @@ function WidgetTestContent() {
           {clients.length > 0 ? (
             <div className="mt-4">
               <label htmlFor={`${formId}-pick`} className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
-                Your workspace clients
+                Your workspace projects
               </label>
               <select
                 id={`${formId}-pick`}

@@ -62,7 +62,7 @@ export default function HomePricingTeaser() {
               href={p.href}
               className={`mt-6 inline-flex justify-center rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition ${
                 p.featured
-                  ? "bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
+                  ? "bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]"
                   : "border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
               }`}
             >
@@ -72,7 +72,7 @@ export default function HomePricingTeaser() {
         ))}
       </ul>
       <p className="mt-6 text-center">
-        <Link href="/pricing" className="text-sm font-medium text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-400">
+        <Link href="/pricing" className="text-sm font-medium text-primary underline-offset-2 hover:underline">
           View full pricing & FAQs →
         </Link>
       </p>

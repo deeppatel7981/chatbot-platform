@@ -103,7 +103,7 @@ export default function InteractiveDemoChat({ variant = "full", className = "", 
         {compact ? "Live widget demo" : "Widget preview"}
       </p>
       <div className="overflow-hidden rounded-xl border border-zinc-200/90 bg-white shadow-md dark:border-zinc-700 dark:bg-zinc-900">
-        <div className="flex items-center gap-2 border-b border-zinc-200/80 bg-zinc-900 px-3 py-2.5 dark:border-zinc-700 dark:bg-zinc-950">
+        <div className="flex items-center gap-2 border-b border-primary/20 bg-gradient-to-br from-primary to-[var(--primary-hover)] px-3 py-2.5 dark:border-primary/30">
           <span className="relative flex h-2.5 w-2.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-40" />
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-zinc-300 dark:bg-zinc-500" />
@@ -130,7 +130,7 @@ export default function InteractiveDemoChat({ variant = "full", className = "", 
                 <div
                   className={
                     m.role === "user"
-                      ? "max-w-[85%] rounded-2xl rounded-br-md bg-zinc-800 px-3.5 py-2 text-sm text-white shadow-sm dark:bg-zinc-200 dark:text-zinc-900"
+                      ? "max-w-[85%] rounded-2xl rounded-br-md bg-primary px-3.5 py-2 text-sm text-primary-foreground shadow-sm"
                       : "max-w-[90%] rounded-2xl rounded-bl-md border border-zinc-200 bg-white px-3.5 py-2 text-sm text-zinc-800 shadow-sm dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
                   }
                 >
@@ -192,14 +192,14 @@ export default function InteractiveDemoChat({ variant = "full", className = "", 
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type a customer question…"
-              className="min-w-0 flex-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-zinc-400 focus:ring-2 focus:ring-zinc-400/30 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-50 dark:focus:border-zinc-500 dark:focus:ring-zinc-500/30"
+              className="min-w-0 flex-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-primary/50 focus:ring-2 focus:ring-primary/20 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-50 dark:focus:border-primary/50 dark:focus:ring-primary/25"
               disabled={typing}
             />
             <motion.button
               type="submit"
               disabled={typing || !input.trim()}
               whileTap={reduceMotion ? undefined : { scale: 0.96 }}
-              className="shrink-0 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+              className="shrink-0 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-emerald-500 dark:hover:bg-emerald-400"
             >
               Send
             </motion.button>

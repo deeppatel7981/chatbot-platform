@@ -30,7 +30,7 @@ export default function ForBusinessSection() {
         <div className="mt-6 flex flex-wrap gap-2">
           <Link
             href="/signup"
-            className="inline-flex rounded-lg bg-emerald-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
+            className="inline-flex rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-[var(--primary-hover)]"
           >
             Start free
           </Link>

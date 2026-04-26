@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import PageIntro from "@/components/dashboard/PageIntro";
 import UploadDocumentForm from "@/components/UploadDocumentForm";
+import { appSurfaceCard } from "@/lib/app-typography";
 
 export default function PortalDocumentsPage() {
   const params = useParams();
@@ -19,7 +20,7 @@ export default function PortalDocumentsPage() {
           </p>
         }
       />
-      <div className="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <div className={appSurfaceCard}>
         <UploadDocumentForm clientId={clientId} />
       </div>
     </div>

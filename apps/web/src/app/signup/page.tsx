@@ -141,7 +141,7 @@ export default function SignupPage() {
   };
 
   const continueSetup = () => router.push("/onboard");
-  const exploreDashboard = () => router.push(getSupabaseBrowserClient() ? "/app/overview" : "/dashboard");
+  const exploreDashboard = () => router.push("/app/overview");
 
   if (success) {
     return (

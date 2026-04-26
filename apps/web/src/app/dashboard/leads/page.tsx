@@ -142,8 +142,8 @@ export default function LeadsPage() {
                 "Open Conversations when the widget or WhatsApp is live — follow-ups often start there.",
                 "Use Automations to capture structured intents later.",
               ]}
-              primaryAction={{ label: "Open conversations", href: "/dashboard/chat-logs" }}
-              secondaryAction={{ label: "Automations", href: "/dashboard/automations" }}
+              primaryAction={{ label: "Open conversations", href: "/app/conversations" }}
+              secondaryAction={{ label: "Automations", href: "/app/automations" }}
             />
           </div>
         ) : (
@@ -160,7 +160,7 @@ export default function LeadsPage() {
               </thead>
               <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
                 {rows.map((r) => (
-                  <tr key={r.id} className="hover:bg-zinc-50/80 dark:hover:bg-zinc-900/40">
+                  <tr key={r.id}>
                     <td className="px-4 py-3 font-medium text-zinc-900 dark:text-zinc-100">{r.title}</td>
                     <td className="px-4 py-3 text-zinc-600 dark:text-zinc-400">{r.source ?? "—"}</td>
                     <td className="px-4 py-3 text-zinc-600 dark:text-zinc-400">{r.intent ?? "—"}</td>
@@ -182,7 +182,7 @@ export default function LeadsPage() {
                         ))}
                       </select>
                     </td>
-                    <td className="px-4 py-3 text-xs tabular-nums text-zinc-500">
+                    <td className="px-4 py-3 text-xs tabular-nums text-zinc-600 dark:text-zinc-400">
                       {new Date(r.updatedAt).toLocaleString()}
                     </td>
                   </tr>
@@ -195,13 +195,13 @@ export default function LeadsPage() {
 
       <div className="flex flex-wrap gap-3">
         <Link
-          href="/dashboard/chat-logs"
+          href="/app/conversations"
           className="inline-flex rounded-xl border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
         >
           Conversations
         </Link>
         <Link
-          href="/dashboard/automations"
+          href="/app/automations"
           className="inline-flex rounded-xl border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
         >
           Automations

@@ -45,17 +45,23 @@ export default function ClientsPage() {
     <div>
       <PageIntro
         eyebrow="Directory"
-        title="Clients"
+        title="Projects"
         description={
           <>
             <p>
               Each row is one business (brand or merchant) in your workspace. You get a dedicated{" "}
               <strong className="font-medium text-zinc-800 dark:text-zinc-200">widget public ID</strong> for website
-              embeds, and you can attach WhatsApp Cloud API credentials per client so channels stay isolated.
+              embeds, and you can attach WhatsApp Cloud API credentials per project so channels stay isolated.
             </p>
             <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-              Add new businesses from the <Link href="/dashboard" className="font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 dark:text-zinc-100">Overview</Link>{" "}
-              page (<strong className="font-medium text-zinc-800 dark:text-zinc-200">New client</strong>), then upload
+              Add new businesses from the{" "}
+              <Link
+                href="/app/overview"
+                className="font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 dark:text-zinc-100"
+              >
+                Overview
+              </Link>{" "}
+              page (<strong className="font-medium text-zinc-800 dark:text-zinc-200">New project</strong>), then upload
               knowledge and copy embed code under <strong className="font-medium text-zinc-800 dark:text-zinc-200">Website widget</strong>.
             </p>
           </>
@@ -73,7 +79,7 @@ export default function ClientsPage() {
 
       {loading ? (
         <div className="rounded-2xl border border-zinc-200 bg-white p-8 text-center text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900">
-          Loading clients…
+          Loading projects…
         </div>
       ) : error ? (
         <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">
@@ -81,20 +87,20 @@ export default function ClientsPage() {
         </div>
       ) : clients.length === 0 ? (
         <DashboardEmptyState
-          title="No clients yet"
+          title="No projects yet"
           description={
             <>
-              A <strong className="font-medium text-zinc-800 dark:text-zinc-200">client</strong> is one business in your
+              A <strong className="font-medium text-zinc-800 dark:text-zinc-200">project</strong> is one business in your
               workspace (widget ID, knowledge, optional WhatsApp). Add the first from Overview, then come back here.
             </>
           }
           steps={[
-            "Open Overview and click New client.",
+            "Open Overview and click New project.",
             "Name the business — you’ll get a widget public ID automatically.",
             "Upload knowledge, then use Integrations to embed the widget or connect WhatsApp.",
           ]}
-          primaryAction={{ label: "Add client on Overview", href: "/dashboard" }}
-          secondaryAction={{ label: "Integrations guide", href: "/dashboard/integrations" }}
+          primaryAction={{ label: "Add project on Overview", href: "/app/overview" }}
+          secondaryAction={{ label: "Integrations guide", href: "/app/integrations" }}
         />
       ) : (
         <div className="overflow-x-auto rounded-2xl border border-zinc-200/80 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
@@ -112,25 +118,25 @@ export default function ClientsPage() {
             </thead>
             <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
               {clients.map((client) => (
-                <tr key={client.id} className="transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
+                <tr key={client.id} className="transition-colors">
                   <td className="px-4 py-3 font-medium text-zinc-900 dark:text-zinc-100">{client.name}</td>
                   <td className="px-4 py-3 font-mono text-xs break-all text-zinc-600 dark:text-zinc-400">
                     {client.widgetPublicId}
                   </td>
-                  <td className="px-4 py-3 text-xs text-zinc-500">
+                  <td className="px-4 py-3 text-xs text-zinc-600 dark:text-zinc-400">
                     {client.createdAt ? new Date(client.createdAt).toLocaleString() : "—"}
                   </td>
                   <td className="px-4 py-3">
                     <Link
                       href={`/portal/${client.id}`}
-                      className="text-sm font-medium text-emerald-800 underline decoration-emerald-300 underline-offset-2 hover:decoration-emerald-500 dark:text-emerald-300"
+                      className="text-sm font-medium text-primary underline decoration-primary/35 underline-offset-2 hover:decoration-primary dark:decoration-primary/50"
                     >
                       Merchant view
                     </Link>
                   </td>
                   <td className="px-4 py-3">
                     <Link
-                      href={`/dashboard/clients/${client.id}`}
+                      href={`/app/projects/${client.id}`}
                       className="text-sm font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-zinc-100"
                     >
                       View

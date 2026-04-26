@@ -41,7 +41,7 @@ export default function MarketingHero() {
       >
         <motion.p
           variants={itemVar}
-          className="mb-3 text-xs font-medium uppercase tracking-wide text-emerald-800 dark:text-emerald-400/90"
+          className="mb-3 text-xs font-medium uppercase tracking-wide text-primary"
         >
           WhatsApp-first AI for Indian businesses
         </motion.p>
@@ -51,7 +51,7 @@ export default function MarketingHero() {
           className="max-w-2xl text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl lg:max-w-3xl lg:text-[2.75rem] lg:leading-[1.1] xl:max-w-4xl dark:text-zinc-50"
         >
           Capture more leads. Reply faster.{" "}
-          <span className="text-emerald-700 dark:text-emerald-400">Follow up automatically.</span>
+          <span className="text-primary">Follow up automatically.</span>
         </motion.h1>
 
         <motion.p
@@ -76,7 +76,7 @@ export default function MarketingHero() {
         <motion.div variants={itemVar} className="mt-8 flex flex-wrap items-center gap-3">
           <Link
             href="/signup"
-            className="inline-flex items-center justify-center rounded-[10px] bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
+            className="inline-flex items-center justify-center rounded-[10px] bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-[var(--primary-hover)]"
           >
             Start free
           </Link>
@@ -90,7 +90,7 @@ export default function MarketingHero() {
         <motion.p variants={itemVar} className="mt-3 text-sm">
           <Link
             href="/#how-it-works"
-            className="font-medium text-emerald-800 underline decoration-emerald-300 underline-offset-2 hover:text-emerald-900 dark:text-emerald-400 dark:decoration-emerald-700"
+            className="font-medium text-primary underline decoration-primary/35 underline-offset-2 hover:decoration-primary dark:decoration-primary/50"
           >
             See how it works
           </Link>

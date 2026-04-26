@@ -74,11 +74,11 @@ export default function UploadWithClientSelect() {
         title="Add a client before uploading"
         description="Knowledge is stored per client. Create at least one business, then refresh this page or return from Overview."
         steps={[
-          "Overview → New client.",
+          "Overview → New project.",
           "Pick a name — uploads unlock here immediately.",
         ]}
-        primaryAction={{ label: "Add client on Overview", href: "/dashboard" }}
-        secondaryAction={{ label: "Clients list", href: "/dashboard/clients" }}
+        primaryAction={{ label: "Add project on Overview", href: "/app/overview" }}
+        secondaryAction={{ label: "Projects list", href: "/app/projects" }}
       />
     );
   }
@@ -117,7 +117,7 @@ export default function UploadWithClientSelect() {
           ) : docs.length === 0 ? (
             <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
               No chunks yet. Upload a PDF or text file above.{" "}
-              <Link href={`/dashboard/clients/${selectedClient}`} className="font-medium text-zinc-900 underline dark:text-zinc-100">
+              <Link href={`/app/projects/${selectedClient}`} className="font-medium text-zinc-900 underline dark:text-zinc-100">
                 Client hub
               </Link>
             </p>

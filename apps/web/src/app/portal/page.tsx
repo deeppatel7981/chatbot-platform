@@ -5,8 +5,10 @@ import { getAccessFromSession } from "@/lib/access-scope";
 import { getDb } from "@/lib/db/client";
 import { clients } from "@/lib/db/schema";
 import { getAppSession } from "@/lib/get-session";
+import { appSurfaceCard, appSurfaceRow } from "@/lib/app-typography";
 import { isMockData } from "@/lib/mock/mode";
 import { mockClients } from "@/lib/mock/fixtures";
+import PageIntro from "@/components/dashboard/PageIntro";
 
 export default async function PortalPickerPage() {
   const session = await getAppSession();
@@ -16,7 +18,7 @@ export default async function PortalPickerPage() {
   }
 
   if (scope.mode === "full" && scope.portalClientIds.length === 0) {
-    redirect("/dashboard");
+    redirect("/app/overview");
   }
 
   if (scope.portalClientIds.length === 1) {
@@ -40,29 +42,45 @@ export default async function PortalPickerPage() {
 
   if (rows.length === 0) {
     return (
-      <div className="mx-auto max-w-lg px-4 py-16 text-center">
-        <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">No portal access</h1>
-        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Your account is not linked to a business yet. Ask your workspace admin to add you under{" "}
-          <code className="rounded bg-zinc-100 px-1 text-xs dark:bg-zinc-800">client_portal_access</code>.
-        </p>
-        <Link href="/login" className="mt-6 inline-block text-sm font-medium text-emerald-700 underline">
-          Back to sign in
-        </Link>
+      <div className="mx-auto max-w-lg px-4 py-12 sm:py-16">
+        <div className={appSurfaceCard}>
+          <PageIntro
+            eyebrow="Access"
+            title="No portal access yet"
+            description={
+              <p>
+                Your account is not linked to a business. Ask your workspace admin to turn on{" "}
+                <strong className="font-medium text-zinc-800 dark:text-zinc-200">merchant portal access</strong> for you
+                in project settings (team / portal permissions).
+              </p>
+            }
+            actions={
+              <Link
+                href="/login"
+                className="inline-flex rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+              >
+                Back to sign in
+              </Link>
+            }
+          />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-lg px-4 py-12">
-      <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Merchant portal</h1>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Choose your business — each area is sandboxed.</p>
-      <ul className="mt-8 space-y-3">
+    <div className="mx-auto max-w-lg px-4 py-8 sm:py-12">
+      <PageIntro
+        eyebrow="Portal"
+        title="Choose your business"
+        description={<p>Each area is sandboxed to that brand only — no workspace admin tools here.</p>}
+      />
+      <ul className="mt-2 space-y-3">
         {rows.map((r) => (
           <li key={r.id}>
             <Link
               href={`/portal/${r.id}`}
-              className="block rounded-xl border border-zinc-200 bg-white px-4 py-4 text-sm font-semibold text-zinc-900 shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50/40 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50 dark:hover:border-emerald-700 dark:hover:bg-emerald-950/30"
+              className={`block text-sm font-semibold text-zinc-900 hover:border-emerald-400 hover:bg-emerald-50/50 dark:text-zinc-50 dark:hover:border-emerald-600 dark:hover:bg-emerald-950/25 ${appSurfaceRow}`}
             >
               {r.name} →
             </Link>

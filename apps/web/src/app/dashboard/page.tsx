@@ -77,7 +77,7 @@ function DashboardOnboardedBanner() {
 
   const dismissOnboarded = () => {
     setDismissedOnboardedBanner(true);
-    router.replace("/dashboard", { scroll: false });
+    router.replace("/app/overview", { scroll: false });
   };
 
   if (!showOnboardedBanner) return null;
@@ -86,7 +86,7 @@ function DashboardOnboardedBanner() {
     <div className="mb-5 rounded-xl border border-emerald-200/90 bg-emerald-50/95 px-3 py-3 text-sm text-emerald-950 dark:border-emerald-900/50 dark:bg-emerald-950/35 dark:text-emerald-100">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <p>
-          <strong className="font-semibold">Welcome aboard.</strong> Your first client is ready in this workspace — add
+          <strong className="font-semibold">Welcome aboard.</strong> Your first project is ready in this workspace — add
           knowledge, connect channels, or open the merchant portal view below.
         </p>
         <button
@@ -128,7 +128,7 @@ export default function DashboardPage() {
       {portalCueClientId ? (
         <div className="mb-5 rounded-xl border border-zinc-200 bg-white px-3 py-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-950">
           <div className="flex flex-wrap items-start justify-between gap-2">
-            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">New client added</p>
+            <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">New project added</p>
             <button
               type="button"
               onClick={() => setPortalCueClientId(null)}
@@ -182,7 +182,7 @@ export default function DashboardPage() {
           className="inline-flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800 active:scale-[0.98] dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
         >
           <span className="text-lg leading-none">+</span>
-          New client
+          New project
         </button>
       </header>
 
@@ -223,11 +223,11 @@ export default function DashboardPage() {
       <div className="mb-10 flex flex-wrap gap-2">
         <span className="w-full text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Quick actions</span>
         {[
-          { href: "/dashboard/knowledge-base", label: "Add FAQs" },
-          { href: "/dashboard/bot-preview", label: "Test widget" },
-          { href: "/dashboard/leads", label: "View leads" },
-          { href: "/dashboard/integrations", label: "Install widget" },
-          { href: "/dashboard/help", label: "Help" },
+          { href: "/app/knowledge", label: "Add FAQs" },
+          { href: "/app/widget", label: "Test widget" },
+          { href: "/app/leads", label: "View leads" },
+          { href: "/app/integrations", label: "Install widget" },
+          { href: "/app/help", label: "Help" },
         ].map((q) => (
           <Link
             key={q.href}
@@ -271,9 +271,9 @@ export default function DashboardPage() {
         ))}
       </section>
 
-      <h2 className="mb-4 mt-14 text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Onboarded clients</h2>
+      <h2 className="mb-4 mt-14 text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">Projects</h2>
       <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
-        Businesses in this workspace. Use <strong className="font-medium text-zinc-800 dark:text-zinc-200">New client</strong> to add
+        Businesses in this workspace. Use <strong className="font-medium text-zinc-800 dark:text-zinc-200">New project</strong> to add
         another brand or store.
       </p>
       <ClientTable refreshKey={refreshKey} />

@@ -1,13 +1,13 @@
 const STEPS = [
   {
     n: 1,
-    title: "Create the client",
-    detail: "Dashboard → Clients → New client. Each brand gets its own widget public ID and optional WhatsApp credentials.",
+    title: "Create the project",
+    detail: "Overview → New project. Each brand gets its own widget public ID and optional WhatsApp credentials.",
   },
   {
     n: 2,
     title: "Train the bot",
-    detail: "Knowledge base → pick the client → upload PDF, DOCX, or TXT. Chunks are embedded for RAG.",
+    detail: "Knowledge → pick the project → upload PDF, DOCX, or TXT. Chunks are embedded for RAG.",
   },
   {
     n: 3,
@@ -17,7 +17,7 @@ const STEPS = [
   {
     n: 4,
     title: "(Optional) WhatsApp",
-    detail: "Add Meta phone number ID + tokens on the client, then point the Meta webhook to this platform’s URL.",
+    detail: "Add Meta phone number ID + tokens on the project, then point the Meta webhook to this platform’s URL.",
   },
   {
     n: 5,

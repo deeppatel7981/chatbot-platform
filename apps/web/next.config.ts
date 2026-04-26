@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
       { source: "/dashboard/leads", destination: "/app/leads", permanent: false },
       { source: "/dashboard/knowledge-base", destination: "/app/knowledge", permanent: false },
       { source: "/dashboard/bot-preview", destination: "/app/widget", permanent: false },
+      { source: "/app/widget/preview", destination: "/app/widget", permanent: false },
       { source: "/dashboard/automations", destination: "/app/automations", permanent: false },
       { source: "/dashboard/analytics", destination: "/app/analytics", permanent: false },
       { source: "/dashboard/team", destination: "/app/team", permanent: false },

@@ -20,23 +20,23 @@ const STEPS: readonly {
 }[] = [
   {
     n: 1,
-    title: "Add a client",
+    title: "Add a project",
     body: "Each business gets its own knowledge and channel config.",
-    href: "/dashboard/clients",
+    href: "/app/projects",
     done: (d) => d.hasClient,
   },
   {
     n: 2,
     title: "Upload documents",
     body: "Add FAQs and files so answers match your catalog and policies.",
-    href: "/dashboard/knowledge-base",
+    href: "/app/knowledge",
     done: (d) => d.hasDocuments,
   },
   {
     n: 3,
     title: "Try the widget",
-    body: "Send a test message from the preview or embed—shows up in chat logs.",
-    href: "/dashboard/bot-preview",
+    body: "Send a test message from the preview or embed—shows up in conversations.",
+    href: "/app/widget",
     done: (d) => d.conversationCount > 0,
   },
 ];

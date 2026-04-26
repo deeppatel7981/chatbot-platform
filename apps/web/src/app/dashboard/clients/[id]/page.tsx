@@ -86,10 +86,10 @@ export default function ClientDetailPage() {
   return (
     <div>
       <Link
-        href="/dashboard/clients"
+        href="/app/projects"
         className="mb-6 inline-flex text-sm font-medium text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
       >
-        ← Back to clients
+        ← Back to projects
       </Link>
 
       {error ? (
@@ -150,7 +150,7 @@ export default function ClientDetailPage() {
           </div>
 
           <div className="mb-8 rounded-2xl border border-emerald-200/80 bg-emerald-50/50 p-5 dark:border-emerald-900/40 dark:bg-emerald-950/20">
-            <h2 className="text-sm font-semibold text-emerald-950 dark:text-emerald-100">What your client sees</h2>
+            <h2 className="text-sm font-semibold text-emerald-950 dark:text-emerald-100">What your merchant sees</h2>
             <MerchantPortalCallout clientId={id} compact />
           </div>
 
@@ -158,7 +158,7 @@ export default function ClientDetailPage() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             <Link
-              href={`/dashboard/clients/${id}/documents`}
+              href={`/app/projects/${id}/documents`}
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
             >
               <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Knowledge & uploads</h2>
@@ -168,17 +168,17 @@ export default function ClientDetailPage() {
               <span className="mt-3 inline-flex text-sm font-medium text-zinc-500">Open →</span>
             </Link>
             <Link
-              href="/dashboard/bot-preview"
+              href="/app/widget"
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
             >
               <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Website widget</h2>
               <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                Embed script uses this client&apos;s public ID when you pick them in Clients first.
+                Embed script uses this project&apos;s public ID when you pick them under Projects first.
               </p>
               <span className="mt-3 inline-flex text-sm font-medium text-zinc-500">Embed code →</span>
             </Link>
             <Link
-              href="/dashboard/integrations"
+              href="/app/integrations"
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
             >
               <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Integrations</h2>
@@ -188,12 +188,12 @@ export default function ClientDetailPage() {
               <span className="mt-3 inline-flex text-sm font-medium text-zinc-500">Guide →</span>
             </Link>
             <Link
-              href="/dashboard/chat-logs"
+              href="/app/conversations"
               className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
             >
               <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Conversations</h2>
               <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                Filter mentally by business name—threads list all clients in the workspace.
+                Filter mentally by business name—threads list all projects in the workspace.
               </p>
               <span className="mt-3 inline-flex text-sm font-medium text-zinc-500">Inbox →</span>
             </Link>

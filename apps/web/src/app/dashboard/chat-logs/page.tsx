@@ -205,7 +205,7 @@ export default function ChatLogsPage() {
           </thead>
           <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
             {filtered.map((r) => (
-              <tr key={r.id} className="min-h-[56px] transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800/50">
+              <tr key={r.id} className="min-h-[56px] transition-colors">
                 <td className="px-4 py-3.5 align-middle font-medium text-zinc-900 dark:text-zinc-100">{r.clientName}</td>
                 <td className="px-4 py-3.5 align-middle">{channelPill(r.channel)}</td>
                 <td className="px-4 py-3.5 align-middle">{statusPill(r.status)}</td>
@@ -221,10 +221,10 @@ export default function ChatLogsPage() {
                   )}
                 </td>
                 <td className="px-4 py-3.5 align-middle">{confidencePill(r.lastConfidence)}</td>
-                <td className="px-4 py-3.5 align-middle text-xs tabular-nums text-zinc-500">{new Date(r.updatedAt).toLocaleString()}</td>
+                <td className="px-4 py-3.5 align-middle text-xs tabular-nums text-zinc-600 dark:text-zinc-400">{new Date(r.updatedAt).toLocaleString()}</td>
                 <td className="px-4 py-3.5 align-middle text-right">
                   <Link
-                    href={`/dashboard/chat-logs/${r.id}`}
+                    href={`/app/conversations/${r.id}`}
                     className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-xl bg-zinc-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
                   >
                     Open
@@ -241,17 +241,17 @@ export default function ChatLogsPage() {
               description={
                 <>
                   Threads show up when someone uses your <strong className="font-medium text-zinc-800 dark:text-zinc-200">website widget</strong> or{" "}
-                  <strong className="font-medium text-zinc-800 dark:text-zinc-200">WhatsApp</strong> (after you connect a client). You need at least one client and an
+                  <strong className="font-medium text-zinc-800 dark:text-zinc-200">WhatsApp</strong> (after you connect a project). You need at least one project and an
                   embedded script or Meta webhook.
                 </>
               }
               steps={[
-                "Create a client on Overview if you have not already.",
-                "Integrations → copy widget snippet, or connect WhatsApp Cloud API for that client.",
+                "Create a project on Overview if you have not already.",
+                "Integrations → copy widget snippet, or connect WhatsApp Cloud API for that project.",
                 "Send a test message — the thread will land here.",
               ]}
-              primaryAction={{ label: "Open Integrations", href: "/dashboard/integrations" }}
-              secondaryAction={{ label: "View clients", href: "/dashboard/clients" }}
+              primaryAction={{ label: "Open Integrations", href: "/app/integrations" }}
+              secondaryAction={{ label: "View projects", href: "/app/projects" }}
             />
           </div>
         )}

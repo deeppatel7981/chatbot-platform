@@ -89,8 +89,8 @@ export default function AutomationsPage() {
             "Integrations — connect the website widget and WhatsApp when ready.",
             "Leads & contacts — capture demand while execution rules expand over time.",
           ]}
-          primaryAction={{ label: "Knowledge base", href: "/dashboard/knowledge-base" }}
-          secondaryAction={{ label: "Leads", href: "/dashboard/leads" }}
+          primaryAction={{ label: "Knowledge base", href: "/app/knowledge" }}
+          secondaryAction={{ label: "Leads", href: "/app/leads" }}
         />
       ) : (
         <div className="grid gap-3 sm:grid-cols-2">
@@ -143,13 +143,13 @@ export default function AutomationsPage() {
 
       <div className="flex flex-wrap gap-3">
         <Link
-          href="/dashboard/knowledge-base"
+          href="/app/knowledge"
           className="inline-flex rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
         >
           Upload knowledge
         </Link>
         <Link
-          href="/dashboard/integrations"
+          href="/app/integrations"
           className="inline-flex rounded-xl border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
         >
           Connect channels
