@@ -21,7 +21,8 @@ Goal: ship the app with **minimal ops**—hosted Postgres + Next.js on Vercel. Y
 ## 2. Vercel
 
 1. Import the GitHub repo → Framework Preset: **Next.js**.
-2. **Environment variables** (Production / Preview):
+2. **Settings → General → Root Directory** — set to **`apps/web`**. This monorepo builds Next.js there; leaving the root at the repo makes Vercel look for `.next` in the wrong place. `apps/web/vercel.json` runs `npm ci` and the workspace build from the repo root.
+3. **Environment variables** (Production / Preview):
 
    | Variable | Notes |
    |----------|--------|
@@ -38,7 +39,7 @@ Goal: ship the app with **minimal ops**—hosted Postgres + Next.js on Vercel. Y
 
    Drizzle still uses **`DATABASE_URL`** only. The `NEXT_PUBLIC_SUPABASE_*` vars enable **`@supabase/supabase-js`** in the browser when you use `getSupabaseBrowserClient()` (e.g. Storage or Supabase Auth later).
 
-3. Deploy. First signup/login will create users in **your** Postgres via **NextAuth** + credentials unless you add Supabase Auth.
+4. Deploy. First signup/login will create users in **your** Postgres via **NextAuth** + credentials unless you add Supabase Auth.
 
 ### Two chat / RAG stacks (do not mix by accident)
 

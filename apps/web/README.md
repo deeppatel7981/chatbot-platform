@@ -15,9 +15,10 @@ This runs `next dev` with `cwd` set to `apps/web` (see `scripts/run-dev.mjs`).
 
 ## Vercel
 
-Set the project **Root Directory** to `apps/web`, or keep the root at the repo and use:
+In the Vercel project **Settings → General → Root Directory**, set **`apps/web`**.
 
-- **Install:** `npm ci`
-- **Build:** `npm run build` (root script runs `next build` in this workspace).
+This directory includes `vercel.json`, which runs a workspace install/build from the monorepo root (`cd ../.. && npm ci` then `npm run build -w @chatbot/web`), so `@chatbot/core` resolves and Next writes `.next` next to `package.json` here.
+
+If Root Directory stays at the repo root, the build can succeed but deploy fails because Vercel looks for `.next` at the wrong path.
 
 Ensure environment variables are configured for the deployment that builds `apps/web`.
